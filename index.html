@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="zh-TW"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>南方的憧憬：中村地平文學地圖 v8 · 日文原文對照版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&amp;family=Shippori+Mincho:wght@400;500;700&amp;family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink:#1a1208; --paper:#f5f0e8; --paper-warm:#ede6d4; --paper-soft:#faf7ef;
+    --sepia:#8b6914; --sepia-lt:#c9a84c; --sepia-dk:#5a3e00;
+    --green:#1a4a32; --green-lt:#e8f2ec; --violet:#2e1a5e; --violet-lt:#ede8f7;
+    --red:#7a1e1e; --red-lt:#f5e8e8; --amber:#7a4a0a; --amber-lt:#f5edd8;
+    --blue:#17466c; --blue-lt:#e5eff7; --muted:#7a6a50;
+    --border:rgba(90,62,0,.15); --border-mid:rgba(90,62,0,.28);
+    --shadow:0 10px 30px rgba(26,18,8,.08);
+  }
+  html{scroll-behavior:smooth} body{background:var(--paper);color:var(--ink);font-family:'Noto Serif TC','Shippori Mincho',serif;line-height:1.8;overflow-x:hidden}
+  .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(139,105,20,.13) 0%,transparent 70%),var(--paper);padding:4rem 2rem;overflow:hidden;text-align:center}
+  .hero::before{content:'南方';position:absolute;font-size:clamp(8rem,30vw,22rem);font-weight:900;color:rgba(139,105,20,.055);letter-spacing:-.05em;pointer-events:none;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap}
+  .kicker{font-family:'EB Garamond',serif;font-size:.95rem;letter-spacing:.25em;color:var(--muted);margin-bottom:1.2rem;opacity:0;animation:fadeUp .8s .1s forwards}
+  h1.hero-name{font-size:clamp(2.6rem,8vw,6rem);font-weight:900;letter-spacing:.12em;line-height:1.1;opacity:0;animation:fadeUp .9s .25s forwards}
+  .hero-sub{font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.45rem);color:var(--sepia);margin-top:1.1rem;letter-spacing:.05em;opacity:0;animation:fadeUp .9s .45s forwards}
+  .hero-quote{margin-top:2.6rem;max-width:680px;font-size:.96rem;color:var(--muted);line-height:2;border-top:1px solid var(--border-mid);border-bottom:1px solid var(--border-mid);padding:1.2rem 2rem;opacity:0;animation:fadeUp 1s .7s forwards;background:rgba(245,240,232,.5)}
+  .hero-quote em{font-style:normal;color:var(--sepia-dk);font-weight:600}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:2rem;opacity:0;animation:fadeUp 1s .95s forwards}
+  .pill{border:1px solid var(--border-mid);border-radius:999px;padding:.55rem 1.05rem;background:rgba(237,230,212,.65);font-size:.78rem;letter-spacing:.08em;color:var(--muted)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  .nav-sticky{position:sticky;top:0;z-index:100;background:rgba(245,240,232,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border-mid);display:flex;justify-content:center;gap:0;padding:0 .5rem;overflow-x:auto}
+  .nav-tab{padding:1rem 1.35rem;font-size:.84rem;letter-spacing:.1em;color:var(--muted);cursor:pointer;border:0;background:none;font-family:inherit;position:relative;white-space:nowrap;transition:color .2s}.nav-tab:hover,.nav-tab.active{color:var(--ink);font-weight:600}.nav-tab::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:2px;background:var(--sepia);transition:left .25s,right .25s}.nav-tab.active::after{left:16px;right:16px}
+  .section{display:none;max-width:980px;margin:0 auto;padding:4rem 2rem 6rem}.section.active{display:block}.section-title{font-size:.75rem;letter-spacing:.3em;color:var(--sepia);text-transform:uppercase;margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem}.section-title::after{content:'';flex:1;height:1px;background:var(--border-mid)}
+  .intro-card{padding:1.3rem 1.6rem;background:var(--paper-warm);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:.92rem;line-height:1.95;margin-bottom:2.2rem}.intro-card strong{color:var(--ink)}
+  .legend{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.2rem;padding:1rem 1.4rem;background:var(--paper-warm);border:1px solid var(--border);border-radius:6px}.legend-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted);letter-spacing:.05em}.legend-dot{width:9px;height:9px;border-radius:50%;border:1.5px solid;background:var(--paper)}.jp{border-color:var(--violet)!important}.tw{border-color:var(--green)!important}.work{border-color:var(--amber)!important}.war{border-color:var(--red)!important}.life{border-color:var(--muted)!important}.crit{border-color:var(--blue)!important}
+  .tl-group{margin-bottom:3rem}.tl-era,.works-era-title,.people-section-title{font-size:.72rem;letter-spacing:.25em;color:var(--sepia);text-transform:uppercase;margin-bottom:1.1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+  .tl-item{display:grid;grid-template-columns:90px 1px 1fr;gap:0 1.5rem;margin-bottom:1.35rem;align-items:start;opacity:0;transform:translateX(-10px);transition:opacity .5s,transform .5s}.tl-item.visible{opacity:1;transform:translateX(0)}.tl-year{font-family:'EB Garamond',serif;font-size:.85rem;color:var(--muted);text-align:right;line-height:1.4;padding-top:2px}.tl-line-wrap{display:flex;flex-direction:column;align-items:center}.tl-dot{width:10px;height:10px;border-radius:50%;border:1.5px solid;background:var(--paper);margin-top:4px}.tl-connector{width:1px;flex:1;min-height:20px;background:var(--border);margin-top:2px}.tl-text{font-size:.95rem;line-height:1.8}.tl-sub{font-size:.82rem;color:var(--muted);margin-top:4px;line-height:1.65}.tag{display:inline-block;font-size:.66rem;padding:1px 7px;border-radius:10px;margin-right:4px;margin-bottom:2px;letter-spacing:.05em;vertical-align:middle}.tag.jp{background:var(--violet-lt);color:var(--violet);border:0!important}.tag.tw{background:var(--green-lt);color:var(--green);border:0!important}.tag.work{background:var(--amber-lt);color:var(--amber);border:0!important}.tag.war{background:var(--red-lt);color:var(--red);border:0!important}.tag.crit{background:var(--blue-lt);color:var(--blue);border:0!important}.tag.need{background:#fff4d6;color:#6b4b00;border:0!important}
+  .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.4rem}.filter-btn{font-family:inherit;border:1px solid var(--border-mid);background:var(--paper-soft);border-radius:999px;padding:.45rem .85rem;font-size:.78rem;color:var(--muted);cursor:pointer}.filter-btn.active,.filter-btn:hover{background:var(--sepia-dk);color:var(--paper)}
+  .works-era{margin-bottom:2.6rem}.works-grid{display:flex;flex-direction:column;gap:1px;border:1px solid var(--border-mid);border-radius:8px;overflow:hidden}.work-row{display:grid;grid-template-columns:1fr auto;gap:1rem;padding:1rem 1.35rem;background:var(--paper-soft);border-bottom:1px solid var(--border);transition:background .15s}.work-row:last-child{border-bottom:0}.work-row:hover{background:var(--paper-warm)}.work-title{font-size:.96rem;font-weight:700;margin-bottom:4px}.work-desc{font-size:.82rem;color:var(--muted);line-height:1.65}.work-meta{display:flex;flex-direction:column;align-items:flex-end;gap:4px}.work-year-badge{font-family:'EB Garamond',serif;font-size:.95rem;color:var(--sepia);white-space:nowrap}
+  .map-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:1.5rem;align-items:start}.map-box{border:1px solid var(--border-mid);border-radius:10px;background:var(--paper-soft);overflow:hidden;box-shadow:var(--shadow)}.map-side{display:flex;flex-direction:column;gap:10px}.place-card{padding:1rem 1.15rem;border:1px solid var(--border);background:var(--paper-soft);border-radius:8px}.place-card h3{font-size:.96rem;margin-bottom:2px}.place-card p{font-size:.82rem;color:var(--muted);line-height:1.65}
+  .network-wrap{border:1px solid var(--border-mid);border-radius:12px;background:var(--paper-soft);padding:1rem;margin-bottom:2rem;box-shadow:var(--shadow);overflow:hidden}.network-title{font-size:.85rem;color:var(--muted);letter-spacing:.1em;margin:.2rem 0 1rem}.network-svg text{font-family:'Noto Serif TC','Shippori Mincho',serif}.network-link{stroke:rgba(90,62,0,.33);stroke-width:1.1}.network-link.strong{stroke:rgba(90,62,0,.55);stroke-width:1.8}.network-node{filter:drop-shadow(0 3px 4px rgba(26,18,8,.12))}.node-core{fill:var(--sepia-dk)}.node-teacher{fill:var(--violet)}.node-peer{fill:#6b5db8}.node-taiwan{fill:var(--green)}.node-war{fill:var(--red)}.node-local{fill:var(--blue)}.node-gap{fill:#9a8b72}
+  .people-section{margin-bottom:2.6rem}.people-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}.person-card{padding:1.1rem 1.25rem;background:var(--paper-soft);border:1px solid var(--border);border-radius:8px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}.person-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--border-mid)}.person-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,18,8,.08)}.person-card.teacher::before{background:var(--violet)}.person-card.peer::before{background:#6b5db8}.person-card.taiwan::before{background:var(--green)}.person-card.war::before{background:var(--red)}.person-card.local::before{background:var(--blue)}.person-card.gap::before{background:#9a8b72}.person-name{font-size:1rem;font-weight:700;margin-bottom:3px}.person-role{font-size:.78rem;color:var(--muted);line-height:1.5;margin-bottom:.75rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}.person-relation{font-size:.82rem;line-height:1.72}.relation-type{font-size:.68rem;letter-spacing:.08em;color:var(--sepia);margin-bottom:.3rem;text-transform:uppercase}
+  .question-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.question-card{background:var(--paper-soft);border:1px solid var(--border);border-radius:10px;padding:1.25rem;box-shadow:0 3px 12px rgba(26,18,8,.04)}.question-card h3{font-size:1rem;margin-bottom:.45rem}.question-card p{font-size:.86rem;color:var(--muted);line-height:1.8}.question-card .q-no{font-family:'EB Garamond',serif;color:var(--sepia);font-size:1.4rem;line-height:1;margin-bottom:.4rem}
+  .source-table{width:100%;border-collapse:collapse;background:var(--paper-soft);border:1px solid var(--border-mid);border-radius:8px;overflow:hidden;font-size:.84rem}.source-table th,.source-table td{border-bottom:1px solid var(--border);padding:.8rem .9rem;text-align:left;vertical-align:top}.source-table th{background:var(--paper-warm);font-weight:700;color:var(--sepia-dk)}.source-table tr:last-child td{border-bottom:0}.source-table td:nth-child(1){width:28%;font-weight:600;color:var(--ink)}.warning{margin-top:1.2rem;padding:1rem 1.2rem;border:1px solid rgba(122,30,30,.18);background:var(--red-lt);border-radius:8px;color:#6c2b2b;font-size:.86rem;line-height:1.8}
+  footer{text-align:center;padding:3rem 2rem;font-size:.75rem;color:var(--muted);border-top:1px solid var(--border);letter-spacing:.1em;background:var(--paper-warm)}
+
+  .analysis-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(250px,.9fr);gap:1rem;margin-bottom:1.6rem}.analysis-card{padding:1.15rem 1.3rem;background:var(--paper-soft);border:1px solid var(--border);border-radius:10px;box-shadow:0 4px 14px rgba(26,18,8,.04)}.analysis-card h3{font-size:1rem;margin-bottom:.45rem;color:var(--ink)}.analysis-card p,.analysis-card li{font-size:.86rem;color:var(--muted);line-height:1.8}.analysis-card ul{padding-left:1.1rem}.analysis-table{width:100%;border-collapse:collapse;margin:1.2rem 0 2rem;border:1px solid var(--border-mid);background:var(--paper-soft);border-radius:8px;overflow:hidden}.analysis-table th,.analysis-table td{border-bottom:1px solid var(--border);padding:.85rem 1rem;text-align:left;vertical-align:top;font-size:.86rem}.analysis-table th{width:170px;color:var(--sepia-dk);background:var(--paper-warm);font-weight:700}.analysis-table tr:last-child th,.analysis-table tr:last-child td{border-bottom:0}.term-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:1rem}.term-card{padding:1rem 1.15rem;background:var(--paper-soft);border:1px solid var(--border);border-radius:9px}.term-card .term{font-weight:800;color:var(--sepia-dk);margin-bottom:.3rem}.term-card .term-note{font-size:.82rem;color:var(--muted);line-height:1.7}.discussion-list{counter-reset:item;display:grid;gap:10px}.discussion-item{padding:1rem 1.15rem;background:var(--paper-soft);border:1px solid var(--border);border-radius:9px}.discussion-item::before{counter-increment:item;content:counter(item,decimal-leading-zero);font-family:'EB Garamond',serif;color:var(--sepia);font-weight:700;margin-right:.5rem}.discussion-item strong{color:var(--ink)}.edit-fab{position:fixed;right:1.5rem;bottom:1.5rem;z-index:250;display:flex;flex-direction:column;align-items:flex-end;gap:10px}.edit-btn{padding:.65rem 1.25rem;border-radius:999px;border:1.5px solid var(--border-mid);background:var(--paper-soft);color:var(--ink);font-family:inherit;font-size:.82rem;letter-spacing:.08em;cursor:pointer;box-shadow:0 6px 20px rgba(26,18,8,.14);transition:all .2s}.edit-btn:hover{background:var(--paper-warm);transform:translateY(-1px)}.edit-btn.active{background:var(--sepia-dk);color:var(--paper);border-color:var(--sepia-dk)}.edit-sub-btns{display:none;flex-direction:column;align-items:flex-end;gap:8px}.edit-sub-btns.show{display:flex}.edit-sub-btn{padding:.5rem 1rem;border-radius:999px;border:1px solid var(--border-mid);background:var(--paper-soft);color:var(--muted);font-family:inherit;font-size:.78rem;cursor:pointer;white-space:nowrap}.edit-sub-btn:hover{background:var(--paper-warm);color:var(--ink)}.edit-sub-btn.danger{border-color:rgba(122,30,30,.3);color:var(--red)}.edit-sub-btn.danger:hover{background:var(--red-lt)}.edit-mode-banner{display:none;position:sticky;top:50px;z-index:99;background:rgba(90,62,0,.92);color:var(--paper);text-align:center;padding:.55rem;font-size:.78rem;letter-spacing:.08em}body.edit-mode .edit-mode-banner{display:block}body.edit-mode [contenteditable="true"]{outline:none;border-radius:3px;cursor:text}body.edit-mode [contenteditable="true"]:hover{background:rgba(139,105,20,.08)}body.edit-mode [contenteditable="true"]:focus{background:rgba(139,105,20,.12);box-shadow:0 0 0 2px rgba(139,105,20,.25)}.save-toast{position:fixed;right:1.5rem;bottom:5rem;z-index:260;background:var(--sepia-dk);color:var(--paper);padding:.55rem 1.15rem;border-radius:999px;font-size:.78rem;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;pointer-events:none}.save-toast.show{opacity:1;transform:translateY(0)}
+
+  @media(max-width:760px){.section{padding:3rem 1.2rem 5rem}.tl-item{grid-template-columns:70px 1px 1fr;gap:0 1rem}.tl-year{font-size:.75rem}.nav-tab{padding:.9rem .8rem;font-size:.76rem}.work-row{grid-template-columns:1fr}.work-meta{align-items:flex-start;flex-direction:row;flex-wrap:wrap}.map-grid{grid-template-columns:1fr}.people-grid{grid-template-columns:1fr}.hero-name{letter-spacing:.06em}.network-wrap{padding:.5rem}.network-svg{min-width:720px}.network-scroll{overflow-x:auto}.analysis-hero{grid-template-columns:1fr}}
+
+  .relation-note{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:1rem 0 2rem}.relation-note .note-mini{border:1px solid var(--border);background:var(--paper-soft);border-radius:8px;padding:.9rem 1rem}.note-mini h4{font-size:.82rem;color:var(--sepia);letter-spacing:.08em;margin-bottom:.25rem}.note-mini p{font-size:.78rem;color:var(--muted);line-height:1.6}.relation-table{width:100%;border-collapse:collapse;background:var(--paper-soft);border:1px solid var(--border-mid);border-radius:8px;overflow:hidden;margin:1.4rem 0 2.5rem}.relation-table th,.relation-table td{padding:.85rem 1rem;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-size:.82rem}.relation-table th{color:var(--sepia-dk);background:var(--paper-warm);font-weight:600}.relation-table tr:last-child td{border-bottom:0}.person-card.institution::before{background:var(--amber)}.person-card.comparison::before{background:#9a8b72}.network-scroll{overflow-x:auto}.network-svg{min-width:920px}.edge-label{font-size:10.5px;fill:var(--muted)}
+
+  .translation-table { table-layout: fixed; width: 100%; }
+  .translation-table caption { caption-side: top; text-align: left; padding: .6rem .2rem .8rem; color: var(--sepia-dk); font-weight: 700; letter-spacing: .06em; }
+  .translation-table th { width: 33.333% !important; text-align: center; }
+  .translation-table td { width: 33.333%; vertical-align: top; white-space: pre-wrap; line-height: 1.9; }
+  .translation-table .jp-text, .translation-table .source-title { font-family: 'Shippori Mincho','Noto Serif TC',serif; color: var(--ink); }
+  .translation-table .source-title { font-size: 1.05rem; font-weight: 800; text-align: center; letter-spacing: .08em; }
+  .work-info-table th { width: 170px !important; }
+
+</style>
+</head>
+<body class="">
+
+<section class="hero">
+  <div class="kicker">1908 — 1963</div>
+  <h1 class="hero-name" data-eid="e0" spellcheck="false">中村地平</h1>
+  <div class="hero-sub" data-eid="e1" spellcheck="false">南方的憧憬・臺灣書寫・文學地圖</div>
+  <blockquote class="hero-quote" data-eid="e2" spellcheck="false">「對於南方的<em>鄉愁</em>、南方的<em>憧憬</em>、南方的<em>愛戀</em>，<br>是我一生永不改變的事。」<br><small style="font-size:.8rem;letter-spacing:.1em">——《台灣小說集》後記</small></blockquote>
+  <div class="hero-actions"><span class="pill" data-eid="e3" spellcheck="false">南方文學</span><span class="pill" data-eid="e4" spellcheck="false">臺灣取材</span><span class="pill" data-eid="e5" spellcheck="false">井伏門下</span><span class="pill" data-eid="e6" spellcheck="false">人物網絡</span><span class="pill" data-eid="e7" spellcheck="false">關係類型</span><span class="pill" data-eid="e8" spellcheck="false">殖民地凝視</span></div>
+</section>
+<nav class="nav-sticky">
+  <button class="nav-tab" onclick="switchTab('life',this)">年表</button>
+  <button class="nav-tab" onclick="switchTab('works',this)">作品</button>
+  <button class="nav-tab active" onclick="switchTab('analysis',this)">作品分析</button>
+  <button class="nav-tab" onclick="switchTab('map',this)">地圖</button>
+  <button class="nav-tab" onclick="switchTab('people',this)">人物網絡</button>
+  <button class="nav-tab" onclick="switchTab('questions',this)">研究視角</button>
+  <button class="nav-tab" onclick="switchTab('sources',this)">資料來源</button>
+</nav>
+
+
+
+
+
+
+<section class="section" id="tab-life">
+  <div class="section-title" data-eid="e9" spellcheck="false">生平大事年表</div>
+  <div class="intro-card" data-eid="e10" spellcheck="false"><strong>閱讀提示：</strong>本年表不只排列生平事件，而是把中村地平的移動分成幾個文學轉折：宮崎的南方感性、臺北高校的殖民地經驗、東京文壇的師承與衝突、1939 年臺灣取材、戰時馬來半島，以及戰後返鄉後的現實收縮。</div>
+  <div class="legend"><div class="legend-item"><div class="legend-dot jp"></div>日本文壇</div><div class="legend-item"><div class="legend-dot tw"></div>臺灣相關</div><div class="legend-item"><div class="legend-dot work"></div>職涯</div><div class="legend-item"><div class="legend-dot war"></div>戰爭時期</div><div class="legend-item"><div class="legend-dot crit"></div>研究節點</div></div>
+  <div class="timeline">
+    <div class="tl-group"><div class="tl-era" data-eid="e11" spellcheck="false">幼年與求學（1908–1930）</div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e12" spellcheck="false">1908</div><div class="tl-line-wrap"><div class="tl-dot life"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e13" spellcheck="false">生於宮崎縣宮崎市淀川町，本名中村治兵衛，父為實業家中村常三郎。</div></div></div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e14" spellcheck="false">中學時代</div><div class="tl-line-wrap"><div class="tl-dot tw"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e15" spellcheck="false"><span class="tag tw">臺灣想像</span>就讀宮崎中學，讀到佐藤春夫的臺灣小說，對「南方」產生強烈憧憬。</div><div class="tl-sub" data-eid="e16" spellcheck="false">這裡可視為「未到臺灣以前的臺灣」：先有文學想像，才有實地旅行。</div></div></div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e17" spellcheck="false">1926</div><div class="tl-line-wrap"><div class="tl-dot tw"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e18" spellcheck="false"><span class="tag tw">臺北高校</span>入臺灣總督府立台北高等學校就讀，親身踏上嚮往的「南方」。</div><div class="tl-sub" data-eid="e19" spellcheck="false">臺北的氣候、語言、人群與殖民地城市經驗，成為日後創作的感官底色。</div></div></div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e20" spellcheck="false">1930</div><div class="tl-line-wrap"><div class="tl-dot jp"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e21" spellcheck="false"><span class="tag jp">東京</span>臺北高校畢業，入東京帝國大學文學部美術史科；入學試場與太宰治初識。</div><div class="tl-sub" data-eid="e22" spellcheck="false">借住林芙美子宅附近，進入東京文藝圈。</div></div></div>
+    </div>
+    <div class="tl-group"><div class="tl-era" data-eid="e23" spellcheck="false">文壇出道與師承（1932–1936）</div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e24" spellcheck="false">1932</div><div class="tl-line-wrap"><div class="tl-dot jp"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e25" spellcheck="false"><span class="tag jp">出道</span>以〈熱帶柳的種子〉在《作品》誌出道，獲佐藤春夫賞識。</div><div class="tl-sub" data-eid="e26" spellcheck="false">師事井伏鱒二，與太宰治、小山祐士並稱「井伏門下三羽烏」。</div></div></div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e27" spellcheck="false">1933</div><div class="tl-line-wrap"><div class="tl-dot jp"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e28" spellcheck="false">東大美術史科畢業，籍留大學院繼續創作；結識檀一雄、尾崎一雄、浅見淵等文壇人士。</div></div></div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e29" spellcheck="false">1934</div><div class="tl-line-wrap"><div class="tl-dot work"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e30" spellcheck="false"><span class="tag work">記者</span>進入都新聞社文化部擔任記者，任職約兩年半。</div></div></div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e31" spellcheck="false">1935–36</div><div class="tl-line-wrap"><div class="tl-dot jp"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e32" spellcheck="false"><span class="tag jp">太宰關係</span>發表〈失踪〉，太宰治後以〈喝采〉回應，兩人長期交惡。</div><div class="tl-sub" data-eid="e33" spellcheck="false">這條線不是花邊，而是「北太宰、南地平」對位成立的關鍵。</div></div></div>
+    </div>
+    <div class="tl-group"><div class="tl-era" data-eid="e34" spellcheck="false">芥川賞候補與南方文學（1937–1941）</div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e35" spellcheck="false">1937–38</div><div class="tl-line-wrap"><div class="tl-dot jp"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e36" spellcheck="false"><span class="tag jp">芥川賞候補</span>〈土龍どんもぽっくり〉〈南方郵信〉〈在離島〉連續三次提名。</div><div class="tl-sub" data-eid="e37" spellcheck="false">「南方文學旗手」形象在此時期逐漸固定。</div></div></div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e38" spellcheck="false">1939</div><div class="tl-line-wrap"><div class="tl-dot tw"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e39" spellcheck="false"><span class="tag tw">臺灣取材</span>與真杉靜枝同赴臺灣各地旅行取材，深入原住民部落山地。</div><div class="tl-sub" data-eid="e40" spellcheck="false">此行孕育《蕃界之女》《霧之蕃社》《長耳國漂流記》等核心作品。</div></div></div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e41" spellcheck="false">1940–41</div><div class="tl-line-wrap"><div class="tl-dot tw"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e42" spellcheck="false"><span class="tag tw">代表作</span>《蕃界之女》獲第四次芥川賞候補；出版《台灣小說集》。</div><div class="tl-sub" data-eid="e43" spellcheck="false">後記中的「南方」宣言，是理解地平文學自我定位的核心。</div></div></div>
+    </div>
+    <div class="tl-group"><div class="tl-era" data-eid="e44" spellcheck="false">戰爭、歸鄉與轉型（1943–1963）</div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e45" spellcheck="false">1943–44</div><div class="tl-line-wrap"><div class="tl-dot war"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e46" spellcheck="false"><span class="tag war">戰時南方</span>受軍部徵用為陸軍報道班員，隨井伏鱒二、小田嶽夫等赴馬來半島約一年。</div><div class="tl-sub" data-eid="e47" spellcheck="false">「憧憬的南方」在戰爭現實中變質，這是本網站後續應深挖之處。</div></div></div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e48" spellcheck="false">1944–47</div><div class="tl-line-wrap"><div class="tl-dot work"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e49" spellcheck="false"><span class="tag work">歸鄉</span>疏開返鄉宮崎市；任日向日日新聞編輯總務，後出任宮崎縣立圖書館館長。</div></div></div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e50" spellcheck="false">1950</div><div class="tl-line-wrap"><div class="tl-dot jp"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e51" spellcheck="false"><span class="tag jp">第五次候補</span>〈八年間〉第五次芥川賞候補，合計五次提名終未獲獎。</div></div></div>
+      <div class="tl-item visible"><div class="tl-year" data-eid="e52" spellcheck="false">1957–63</div><div class="tl-line-wrap"><div class="tl-dot work"></div><div class="tl-connector"></div></div><div class="tl-body"><div class="tl-text" data-eid="e53" spellcheck="false">退任圖書館長後轉任銀行取締役，1961 年接任第二代社長；1963 年逝世，享年五十五歲。</div><div class="tl-sub" data-eid="e54" spellcheck="false">1971 年皆美社身後刊行《中村地平全集》（全三卷）。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tab-works">
+  <div class="section-title" data-eid="e55" spellcheck="false">作品資料</div>
+  <div class="intro-card" data-eid="e56" spellcheck="false"><strong>改版重點：</strong>作品不只按年份排列，也標示「臺灣、芥川賞、戰時、隨筆」等屬性。日後若改成 JSON 資料庫，可進一步加入初出、出版社、頁碼、關鍵詞與原文摘錄。</div>
+  <div class="filter-bar"><button class="filter-btn active" onclick="filterWorks('all',this)">全部</button><button class="filter-btn" onclick="filterWorks('taiwan',this)">臺灣相關</button><button class="filter-btn" onclick="filterWorks('akutagawa',this)">芥川賞候補</button><button class="filter-btn" onclick="filterWorks('war',this)">戰時／南洋</button><button class="filter-btn" onclick="filterWorks('essay',this)">隨筆</button></div>
+  <div class="works-era"><div class="works-era-title" data-eid="e57" spellcheck="false">早期文壇出道（1932–1936）</div><div class="works-grid">
+    <div class="work-row" data-type="taiwan"><div><div class="work-title" data-eid="e58" spellcheck="false">〈熱帶柳的種子〉（熱帯柳の種子）</div><div class="work-desc" data-eid="e59" spellcheck="false">文壇出道作，發表於《作品》誌，獲佐藤春夫賞識。以臺灣植物意象為核心，奠定南方文學底色。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e60" spellcheck="false">1932</span><span class="tag tw">臺灣意象</span></div></div>
+    <div class="work-row" data-type=""><div><div class="work-title" data-eid="e61" spellcheck="false">〈失踪〉</div><div class="work-desc" data-eid="e62" spellcheck="false">以太宰治失蹤及自殺未遂事件為題材，發表於《行動》誌，引發兩人決裂。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e63" spellcheck="false">1935</span></div></div>
+    <div class="work-row" data-type="essay"><div><div class="work-title" data-eid="e64" spellcheck="false">《旅先にて》（旅途中）</div><div class="work-desc" data-eid="e65" spellcheck="false">版畫莊文庫出版，旅行散文集。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e66" spellcheck="false">1937</span><span class="tag work">隨筆</span></div></div>
+  </div></div>
+  <div class="works-era"><div class="works-era-title" data-eid="e67" spellcheck="false">芥川賞候補期（1937–1940）</div><div class="works-grid">
+    <div class="work-row" data-type="akutagawa"><div><div class="work-title" data-eid="e68" spellcheck="false">〈土龍どんもぽっくり〉</div><div class="work-desc" data-eid="e69" spellcheck="false">第一次芥川賞候補，南方鄉土氣息濃厚的短篇。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e70" spellcheck="false">1937</span><span class="tag jp">芥川賞候補</span></div></div>
+    <div class="work-row" data-type="akutagawa"><div><div class="work-title" data-eid="e71" spellcheck="false">〈南方郵信〉</div><div class="work-desc" data-eid="e72" spellcheck="false">第二次芥川賞候補，以書信體呈現對南方的憧憬與思念。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e73" spellcheck="false">1938</span><span class="tag jp">芥川賞候補</span></div></div>
+    <div class="work-row" data-type="akutagawa"><div><div class="work-title" data-eid="e74" spellcheck="false">〈在離島〉（離れ島にて）</div><div class="work-desc" data-eid="e75" spellcheck="false">第三次芥川賞候補，描寫南方離島生活。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e76" spellcheck="false">1938</span><span class="tag jp">芥川賞候補</span></div></div>
+    <div class="work-row" data-type=""><div><div class="work-title" data-eid="e77" spellcheck="false">《熱帯柳の種子》</div><div class="work-desc" data-eid="e78" spellcheck="false">版畫莊出版，首部短篇集。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e79" spellcheck="false">1938</span></div></div>
+    <div class="work-row" data-type="taiwan akutagawa"><div><div class="work-title" data-eid="e80" spellcheck="false">《蕃界之女》（蕃界の女）</div><div class="work-desc" data-eid="e81" spellcheck="false">第四次芥川賞候補。以臺灣原住民部落女性為主角，融合浪漫想像與異域凝視的代表作。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e82" spellcheck="false">1940</span><span class="tag tw">臺灣原住民</span><span class="tag jp">芥川賞候補</span></div></div>
+  </div></div>
+  <div class="works-era"><div class="works-era-title" data-eid="e83" spellcheck="false">臺灣取材系列（1939–1941）</div><div class="works-grid">
+    <div class="work-row" data-type="taiwan"><div><div class="work-title" data-eid="e84" spellcheck="false">《霧之蕃社》（霧の蕃社）</div><div class="work-desc" data-eid="e85" spellcheck="false">以霧中山地部落為場景，描繪原住民生活習俗，帶有對「蠻荒南方」的浪漫化想像。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e86" spellcheck="false">1939–40</span><span class="tag tw">臺灣原住民</span></div></div>
+    <div class="work-row" data-type="taiwan"><div><div class="work-title" data-eid="e87" spellcheck="false">《長耳國漂流記》</div><div class="work-desc" data-eid="e88" spellcheck="false">以牡丹社事件為靈感的奇幻冒險小說，描寫漂流至長耳族居住島嶼的故事。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e89" spellcheck="false">1941</span><span class="tag tw">臺灣原住民</span></div></div>
+    <div class="work-row" data-type="taiwan"><div><div class="work-title" data-eid="e90" spellcheck="false">《台灣小說集》</div><div class="work-desc" data-eid="e91" spellcheck="false">匯集臺灣取材作品。後記中留下「對南方的鄉愁……」之自我定位。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e92" spellcheck="false">1941</span><span class="tag tw">臺灣</span></div></div>
+  </div></div>
+  <div class="works-era"><div class="works-era-title" data-eid="e93" spellcheck="false">戰時與戰後（1941–1950）</div><div class="works-grid">
+    <div class="work-row" data-type="essay"><div><div class="work-title" data-eid="e94" spellcheck="false">《仕事机》（工作桌）</div><div class="work-desc" data-eid="e95" spellcheck="false">筑摩書房出版，隨筆評論集。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e96" spellcheck="false">1941</span><span class="tag work">隨筆</span></div></div>
+    <div class="work-row" data-type="war"><div><div class="work-title" data-eid="e97" spellcheck="false">《マライの人たち》（馬來的人們）</div><div class="work-desc" data-eid="e98" spellcheck="false">記錄隨陸軍報道班員赴馬來半島的見聞。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e99" spellcheck="false">1944</span><span class="tag war">戰時紀行</span></div></div>
+    <div class="work-row" data-type=""><div><div class="work-title" data-eid="e100" spellcheck="false">《日向》</div><div class="work-desc" data-eid="e101" spellcheck="false">以宮崎故鄉「日向國」為題的鄉土作品集。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e102" spellcheck="false">1944</span></div></div>
+    <div class="work-row" data-type=""><div><div class="work-title" data-eid="e103" spellcheck="false">〈孩子的形象〉（子供の像）</div><div class="work-desc" data-eid="e104" spellcheck="false">以女兒危篤奇蹟生還為素材，風格從浪漫主義轉向私小說，被視為戰後轉折之作。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e105" spellcheck="false">1948</span></div></div>
+    <div class="work-row" data-type="akutagawa"><div><div class="work-title" data-eid="e106" spellcheck="false">〈八年間〉</div><div class="work-desc" data-eid="e107" spellcheck="false">第五次芥川賞候補，戰後重要短篇。</div></div><div class="work-meta"><span class="work-year-badge" data-eid="e108" spellcheck="false">1950</span><span class="tag jp">芥川賞候補</span></div></div>
+  </div></div>
+</section>
+
+
+<section class="section active" id="tab-analysis">
+  <div class="section-title" data-eid="e109" spellcheck="false">作品分析：〈熱帶柳的種子〉</div>
+  <div class="intro-card" data-eid="e110" spellcheck="false"><strong>本頁狀態：</strong>已先將你提供的日文原文放入「翻譯對照」表格。Claude 翻譯與 GPT 翻譯欄位暫時留白，之後可直接用右下角編輯功能逐段補入。</div>
+
+  <div class="analysis-card">
+    <h3 data-eid="e111" spellcheck="false">一、作品基本資料</h3>
+    <table class="analysis-table work-info-table">
+      <tbody>
+        <tr><th data-eid="e112" spellcheck="false">作品名</th><td data-eid="e113" spellcheck="false">〈熱帶柳的種子〉／〈熱帯柳の種子〉</td></tr>
+        <tr><th data-eid="e114" spellcheck="false">作者</th><td data-eid="e115" spellcheck="false">中村地平</td></tr>
+        <tr><th data-eid="e116" spellcheck="false">出版資訊</th><td data-eid="e117" spellcheck="false">中村地平，〈熱帯柳の種子〉，初出於《作品》昭和7年1月號（1932年1月）。<span style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-size: 0.86rem;">1938 年 3 月由東京「版画荘」出版，</span><span style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-size: 13.76px;">第一本同名小說集《熱帯柳の種子》，</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="people-section">
+    <div class="people-section-title" data-eid="e118" spellcheck="false">翻譯對照</div>
+    <div class="intro-card" data-eid="e119" spellcheck="false"><strong>操作方式：</strong>每一列對應一段原文或一行歌詞／對話。左欄已放入日文原文；中欄與右欄分別預留 Claude 翻譯與 GPT 翻譯。若後續要改成「段落群組」或「章節分段」，可再依文本節奏調整。</div>
+    <table class="analysis-table translation-table">
+      <caption>〈熱帯柳の種子〉翻譯對照表</caption>
+      <thead>
+        <tr>
+          <th scope="col" data-eid="e120" spellcheck="false">原文</th>
+          <th scope="col" data-eid="e121" spellcheck="false">Claude 翻譯</th>
+          <th scope="col" data-eid="e122" spellcheck="false">GPT 翻譯</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="source-title" data-eid="analysis_src_0" spellcheck="false">熱帶柳の種子</td>
+          <td data-eid="analysis_claude_0" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_0" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_1" spellcheck="false">　私は台湾の高等学校へはいっていた。雨のよくふるところで、亜熱帯樹の匂いは、部屋にいるときでも容易に手でつかむことができた。眼にはみえない黄色い花粉が空気を泳いでいるからであろう。晴れると空は鋭くて、熱帯柳の種子がぼんぼん天をとんだ。道を歩いていると、ふとその指頭大の綿毛が体にあたることがあった。純白で十分に柔かい綿毛である。私はそれをいつも無心に掌にもむ癖があった。植民地にすむ私達の心は、ともすれば虚無的になるのであろう。</td>
+          <td data-eid="analysis_claude_1" spellcheck="false"><p class="MsoNormal" style="margin: 0cm 0cm 6pt; font-size: medium; font-family: 標楷體, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); white-space: normal; text-align: justify; text-indent: 24pt;">我就讀台灣的高等學校。那是個雨水豐沛的地方，亞熱帶樹木的氣息，即便待在室內也唾手可得。想必是因為肉眼看不見的黃色花粉在空氣中游弋的緣故。天晴時，天空銳利刺眼，熱帶柳的種子不停地迸向天際。走在路上，偶爾會有那指頭大小的棉絮飄落觸碰身體。純白而柔軟的棉絮。我總是無心地習慣性把它放在掌心揉捏。住在殖民地的我們，心靈動輒流於虛無，想必也是難免的吧。<span lang="EN-US"><o:p></o:p></span></p></td>
+          <td data-eid="analysis_gpt_1" spellcheck="false"><p class="p1" style="margin-right: 0cm; margin-left: 0cm; font-size: medium; font-family: 新細明體, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); white-space: normal; text-indent: 24pt;">我進入臺灣的高等學校就讀。那是一個常常下雨的地方，亞熱帶樹木的氣味，即使人在房間裡，也彷彿能輕易用手抓住。大概是因為空氣中，漂浮著肉眼看不見的黃色花粉吧。天氣放晴時，天空便顯得銳利，熱帶柳的種子一團團飛向天際。走在路上，有時那指尖大小的絨毛，會忽然碰到身上。那是純白而極其柔軟的絨毛。我總有一個習慣，會無心地把它放在掌中揉搓。住在殖民地的我們，內心或許很容易就變得虛無吧。<span lang="EN-US"><o:p></o:p></span></p></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_2" spellcheck="false">　池のある家に、私はすんでいた。</td>
+          <td data-eid="analysis_claude_2" spellcheck="false"><p class="MsoNormal" style="margin: 0cm 0cm 6pt; font-size: medium; font-family: 標楷體, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); white-space: normal; text-align: justify; text-indent: 24pt;">我住在一棟有池塘的房子裡。<span lang="EN-US"><o:p></o:p></span></p></td>
+          <td data-eid="analysis_gpt_2" spellcheck="false"><p class="p1" style="margin-right: 0cm; margin-left: 0cm; font-size: medium; font-family: 新細明體, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); white-space: normal; text-indent: 24pt;">我住在一間有池塘的屋子裡。<span lang="EN-US"><o:p></o:p></span></p></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_3" spellcheck="false">　池は裏の堤に沿った小川から水をひいていたが、表にも一つの流れがあって、ほこりっぽい往還のガジュマル並木の影をうつしている。私は池をすぐ前にみる八畳の部屋にすんで、なにか胴体のみで生きているような気もちになって、呼吸を皮膚でしていた。</td>
+          <td data-eid="analysis_claude_3" spellcheck="false"><p class="MsoNormal" style="margin: 0cm 0cm 6pt; font-size: medium; font-family: 標楷體, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); white-space: normal; text-align: justify; text-indent: 24pt;">池塘的水引自後方堤岸旁的小溪，而門前也有一道水流，映照著塵土飛揚的大路旁，榕樹並木投下的倒影。我住在正對著池塘的八疊房間裡，心裡有種彷彿只剩軀幹活著的感覺，用皮膚呼吸著。<span lang="EN-US"><o:p></o:p></span></p></td>
+          <td data-eid="analysis_gpt_3" spellcheck="false"><p class="p1" style="margin-right: 0cm; margin-left: 0cm; font-size: medium; font-family: 新細明體, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); white-space: normal; text-indent: 24pt;">池塘的水，是從後方沿著堤岸流過的小河引來的；屋前也有一道水流，映著塵土飛揚的往來道路，以及道路兩旁榕樹行道樹的影子。我住在一間八疊大的房間裡，池塘就在眼前。待在那裡時，我總覺得自己彷彿只剩下一具軀幹活著，正用皮膚呼吸。<span lang="EN-US"><o:p></o:p></span></p></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_4" spellcheck="false">　離れの六畳には古賀と云う理科の友人がすんで、その窓からはモノクロームの風景に近い土人部落が眺められた。青みどろでふくれた小川と並行に竹藪がつづき、部落はその竹藪につまれていた。藪は風にゆすぶられる毎にひからびた音をたて、赤い瓦の上に白いさらさらした粉を落した。陽の光りが乾いて白い粉になったのかもしれない。古賀の部屋へ行って土人部落の方を眺めると、青草のもえた岸にそって家鴨の群がうかび、午後になると岸では真白い服をつけた査媒人（土人娘のこと）が一列に並んで洗濯をしている。査媒人は、洗濯をしながら次のような唄を合唱するのである。</td>
+          <td data-eid="analysis_claude_4" spellcheck="false"><p class="MsoNormal" style="margin: 0cm 0cm 6pt; font-size: medium; font-family: 標楷體, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); white-space: normal; text-align: justify; text-indent: 24pt;">離屋六疊的房間住著一位叫古賀的理科同學，從他的窗戶望出去，可以看見近乎單色調風景的原住民部落。與青苔叢生、鼓脹浮腫的小溪並行，竹林連綿延伸，部落便被夾擠在那片竹林之中。竹林每被風搖晃一次，便發出乾燥的聲響，在紅瓦屋頂上灑落白色細粉。也許那是陽光曬乾後化成的白粉也說不定。去古賀的房間眺望原住民部落，只見青草茂盛的河岸邊，鴨群浮游其上，午後時分，岸邊便有一排身穿雪白衣裳的查媒人（原住民少女），一字排開洗著衣物。查媒人們一邊洗衣，一邊合唱著這樣的歌：<span lang="EN-US"><o:p></o:p></span></p></td>
+          <td data-eid="analysis_gpt_4" spellcheck="false"><p class="p1" style="margin-right: 0cm; margin-left: 0cm; font-size: medium; font-family: 新細明體, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); white-space: normal; text-indent: 24pt;">離屋的六疊房間裡，住著一位名叫古賀的理科朋友。從他的窗子望出去，可以看見近乎單色畫般的土人部落。長滿青苔、水色膨脹的小河旁，竹林一路延伸，部落便被那竹林包圍著。竹林每當被風吹動，便發出乾枯的聲響，並在紅瓦屋頂上灑落白色而沙沙作響的粉末。也許那是陽光乾燥之後，化成了白色粉末吧。我到古賀的房間去，朝土人部落那邊望去時，沿著青草燃燒般鮮明的河岸，會有一群鴨子浮在水面上；到了午後，岸邊則有一排穿著純白衣服的查媒人〔指土人少女〕正在洗衣。查媒人一邊洗衣，一邊合唱著下面這樣的歌。<span lang="EN-US"><o:p></o:p></span></p></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_5" spellcheck="false">　　　西窓外　月精是淸明</td>
+          <td data-eid="analysis_claude_5" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_5" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_6" spellcheck="false">　　　出外人　何年心憂燥</td>
+          <td data-eid="analysis_claude_6" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_6" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_7" spellcheck="false">　　　心燥煩了　就思随随随随到</td>
+          <td data-eid="analysis_claude_7" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_7" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_8" spellcheck="false">　　　一想起　父母年会老</td>
+          <td data-eid="analysis_claude_8" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_8" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_9" spellcheck="false">　　　二想起　兄弟亦同薄</td>
+          <td data-eid="analysis_claude_9" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_9" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_10" spellcheck="false">　　　三思妻子　就是年年年年猶少</td>
+          <td data-eid="analysis_claude_10" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_10" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_11" spellcheck="false">　私はこの唄をアチャと云う十七歳の少女に教えて貰ったことがある。アチャは毎日私の家へやってきて、私達が学校へ行っている間に私達の部屋の窓ガラスをふいた。アチャは夕方になるとリエン・リエン・リエンと円みのある声でその唄をうたいながら、井戸のポンプで風呂場へ水をおくった。アチャは私達の洗濯物を小腋にかかえて、豊かな肥り肉をよちよちと動かして、土橋をわたって帰ってゆく。</td>
+          <td data-eid="analysis_claude_11" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_11" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_12" spellcheck="false">　アチャはある午後私達の家に生蕃家鴨の子をうりにきた。</td>
+          <td data-eid="analysis_claude_12" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_12" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_13" spellcheck="false">　生蕃家鴨というのは顔は七面鳥にて、鶏の翼のように彩られ、体は家鴨の大きさぐらいある鳥だ。尊大なところは七面島であるが、饒舌なところはやっぱり家鴨だ。白い家鳴の群にまじって、土人部落の湿地を無恰好に歩いている。家鴨がてんでに騒ぎながら川にとびこむと、そのあとで岸の一枚板の上にたって「ぎゃア」となき、水の中にどぶんと音をたてる。そんな鳥だ。</td>
+          <td data-eid="analysis_claude_13" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_13" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_14" spellcheck="false">　細君は私と古賀とに、</td>
+          <td data-eid="analysis_claude_14" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_14" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_15" spellcheck="false">　「生蕃家鴨の子を見にいらっしゃい」</td>
+          <td data-eid="analysis_claude_15" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_15" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_16" spellcheck="false">　とよんだ。古賀はアチャの真白い胸をのぞきこんで私に、</td>
+          <td data-eid="analysis_claude_16" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_16" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_17" spellcheck="false">　「これは大きくなると天をとぶんだよ」</td>
+          <td data-eid="analysis_claude_17" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_17" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_18" spellcheck="false">　と云った。</td>
+          <td data-eid="analysis_claude_18" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_18" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_19" spellcheck="false">　「どれぐらい」</td>
+          <td data-eid="analysis_claude_19" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_19" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_20" spellcheck="false">　「三階建ちの家ぐらい」</td>
+          <td data-eid="analysis_claude_20" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_20" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_21" spellcheck="false">　「じゃあ逃げるだろ」</td>
+          <td data-eid="analysis_claude_21" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_21" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_22" spellcheck="false">　「なあに家畜だもん」</td>
+          <td data-eid="analysis_claude_22" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_22" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_23" spellcheck="false">　と云って平気な顔をした。</td>
+          <td data-eid="analysis_claude_23" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_23" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_24" spellcheck="false">　黄色い柔かそうな三びきの生蕃家鴨の子は、輪になったアチャの白い袖の中から、マドロス・パイプの柄のような嘴をだして、空気がもれる声でないた。アチャは首を斜にして、玉虫色の首飾りをゆすぷりながら、</td>
+          <td data-eid="analysis_claude_24" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_24" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_25" spellcheck="false">　「いくらでもいいから、買って下さい」</td>
+          <td data-eid="analysis_claude_25" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_25" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_26" spellcheck="false">　と下宿の細君にたのんだ。</td>
+          <td data-eid="analysis_claude_26" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_26" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_27" spellcheck="false">　「だってそんなもの飼ったら、池のお魚はみんな喰べられっちゃうじゃないの。ゴンゴン（お馬鹿さんの意）ねえ」</td>
+          <td data-eid="analysis_claude_27" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_27" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_28" spellcheck="false">　細君に叱られるとアチャはしょげきって、黄色い白粉刷毛のような家鴨の子に頬ずりした。家鴨の子は眼の縁だけに黒い毛がはえて、病身な四十男のような感じだった。アチャがあきらめて家をでようとすると、生蕃家鴨の子は、しょぼしょぼした眼で僕達の方を名残りおしそうにながめ、嘴をよせあってないた。</td>
+          <td data-eid="analysis_claude_28" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_28" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_29" spellcheck="false">　「貴方の家の雄鶏が、うちにきて淫売してこまります」</td>
+          <td data-eid="analysis_claude_29" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_29" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_30" spellcheck="false">　下宿の細君はアチャの云う意味が呑みこめないで怪訝そうな顔をしていたが、アチャはむっとして、</td>
+          <td data-eid="analysis_claude_30" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_30" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_31" spellcheck="false">　「うちの雌鶏はレグホンです。まいにち大きな卵をうむのです。貴方の家のチャボでしょう。チャボが遊びにくるようになって、卵がたいへん小さくなりました」</td>
+          <td data-eid="analysis_claude_31" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_31" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_32" spellcheck="false">　と訴えた。細君が笑いだした。</td>
+          <td data-eid="analysis_claude_32" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_32" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_33" spellcheck="false">　「では垣からださないようにするわ。ごめんなさいね」</td>
+          <td data-eid="analysis_claude_33" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_33" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_34" spellcheck="false">　とあやまると、アチャは満足してでて行った。</td>
+          <td data-eid="analysis_claude_34" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_34" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_35" spellcheck="false">　裏の土人街では、淫売というハイカラ言葉が流行した。夜、古賀の部屋からみていると、橋の付近には土人娘のうつむいて歩く輪郭が黒くみえる。輪郭は間もなく二つになり、それは一つにもつれて、川沿いの煉瓦屋へはいる。窓の灯がきえて川面ばかり蒼く光るーーそれは毎夜のことだ。日のくれないうちに盛装して自転車にまたがって繁華な町へかよう娘もいた。</td>
+          <td data-eid="analysis_claude_35" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_35" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_36" spellcheck="false">　「でもアチャは大丈夫ですわ」</td>
+          <td data-eid="analysis_claude_36" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_36" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_37" spellcheck="false">　と下宿の細君は説明した。</td>
+          <td data-eid="analysis_claude_37" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_37" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_38" spellcheck="false">　「アチャは二つの時にあの家に買われてきたんですって。ゆくゆくは、あの家の総領息子のお嫁さんになるんですのよ」</td>
+          <td data-eid="analysis_claude_38" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_38" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_39" spellcheck="false">　アチャが『兄さん』と呼んでいる若者は、私達の学校近くのキャラメル工場へ通っていた。工場は赤い煉瓦建ちで、横ぐわえにした煙管のような煙突からふきでる白い煙りは、黒土畑を背景とする明朗な空中を、一本の小川となってながれていた。アチャは私達の学校へも掃除にきた。放課後、グラウンドの芝生を歩いていたら、上から「中村さん」とよぶ声がした。アチャは窓ガラスをふくために、二階の窓を木馬にしてまたがっていた。窓は高くて私は目まいがした。アチャは人なつこい。川や水溜りの多いこの町はずれを、霧がたちこめやすい夕暮時分、アチャと『兄さん』は学校裏の田畝道を仲よく連れだって歩いていた。肥り肉を真白な服に包んだアチャは、紅いミモザの花を手にもって、にこにこと笑っていたが、水溜りに憩んでいる水牛をみると、その背にとまっている虻を手際よくミモザの枝ではらったりした。</td>
+          <td data-eid="analysis_claude_39" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_39" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_40" spellcheck="false">　下宿の池の縁には一本のパパイヤがあって、その幹は、海龍でも泳いでいそうに蒼く晴れた空を槍のようにつきさしていた。そんな日には池はすんで、水底にたまった枯葉の上を緋鯉が縦隊に並んで泳ぐのがみえた。下宿の主人は、日月潭へ土木出張にでたま音信をよこさない。細君は蕭々とした後姿をパパイヤの樹にもたせ、手をうって鯉をよぶのであった。細君は机の前に坐っている私の方へ、その薄化粧をした顔を後ろへむけ、</td>
+          <td data-eid="analysis_claude_40" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_40" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_41" spellcheck="false">　「鯉はちっとも大きくなりませんわ」</td>
+          <td data-eid="analysis_claude_41" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_41" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_42" spellcheck="false">　と云う。</td>
+          <td data-eid="analysis_claude_42" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_42" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_43" spellcheck="false">　辺りには水蛇が多く出没し、蛇は魚をねらって、はり切った池の面を銀灰色の体ですべった。竹棹で水をたく音と、細君の声とが私の部屋へ聞えてくることがある。</td>
+          <td data-eid="analysis_claude_43" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_43" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_44" spellcheck="false">　「石の下、石の下にいるじゃありませんか。いいえ。そこじゃないのよ。躑躅の蔭ですってば」</td>
+          <td data-eid="analysis_claude_44" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_44" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_45" spellcheck="false">　金切り声がやんで、しばらくすると、古賀は障子の外から私をよんだ。部屋をでて廊下にたってみると、古賀がもった棹の先に、蛇が古繩のようにだらしなくぶらさがっていた。首の皮膚は破られて中に馬肉のように新鮮な色が覗いている。</td>
+          <td data-eid="analysis_claude_45" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_45" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_46" spellcheck="false">　蛇は又、土人部落の生蕃家鴨と喧嘩をした。</td>
+          <td data-eid="analysis_claude_46" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_46" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_47" spellcheck="false">　「ぎゃッ」と咽喉をつぶされたような鳴声がするので、離れの窓から川沿いの部落をみると、生蕃家鴨は、低地の泥水の中に羽毛をとばしながら、生物ではない、一個の塊りのように疾走していた。塊りは首を鎖のような蛇にしめつけられ、地上二尺位の宙をとびながら、竹藪の中にきえた。しばらくの間、竹藪のなかはざわめいている感じであった。</td>
+          <td data-eid="analysis_claude_47" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_47" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_48" spellcheck="false">　ある日、はげしい風の音が障子をたたいたと思うと、風には雨が加わり、堤の赫土は池にながれこみ、雨脚の鋭い水の面はたちまち濁った。雨は夜になってもやまず、池は水量をまして、パパイヤの根は五寸位も水にひたった。細君は私と古賀との二つの部屋に通ずる廊下をいったりきたりして、足袋の音をせわしく、</td>
+          <td data-eid="analysis_claude_48" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_48" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_49" spellcheck="false">　「鯉が、鯉が」</td>
+          <td data-eid="analysis_claude_49" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_49" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_50" spellcheck="false">　とさわいだ。</td>
+          <td data-eid="analysis_claude_50" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_50" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_51" spellcheck="false">　翌日になると雨も風もやんで、パパイヤの黄色くうれた果実が一つだけ、蒼空に高くとり残された。細君はしかし朝から心が晴れない模様で、蕭々とした後姿をパパイヤの樹にもたせ、</td>
+          <td data-eid="analysis_claude_51" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_51" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_52" spellcheck="false">　「百びきぐらいも逃げたでしょうか」</td>
+          <td data-eid="analysis_claude_52" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_52" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_53" spellcheck="false">　とつぶやいていた。</td>
+          <td data-eid="analysis_claude_53" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_53" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_54" spellcheck="false">　それから一週間もたってからであっただろう。アチャは裏の竹門に白い姿を現わした。アチャは洗面器を両手で胸に抱えていた。洗面器は白いエナメル底の池になって、なかでは一匹の緋鯉が背鰭だけを水面からだして動かし、窮屈そうにおよいでいた。アチャはせきこんで、</td>
+          <td data-eid="analysis_claude_54" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_54" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_55" spellcheck="false">　「兄さんが川で魚を釣っていたら、こんなのが懸ったんだそうです。私はこの池から逃げたのに違いないと思って、無理に貰って、持ってきました」</td>
+          <td data-eid="analysis_claude_55" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_55" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_56" spellcheck="false">　云いながら台所の框のガス七輪の前に洗面器を静かにおろした。細君は嬉しそうな顔をしたが黙っていた。</td>
+          <td data-eid="analysis_claude_56" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_56" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_57" spellcheck="false">　「これ池に放しましょうか」</td>
+          <td data-eid="analysis_claude_57" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_57" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_58" spellcheck="false">　アチャは土間から框にたっている細君を覗きこんだ。細君はあわてて、</td>
+          <td data-eid="analysis_claude_58" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_58" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_59" spellcheck="false">　「いいえ、いいの。家のだかどうだか分りはしないし、もしそうだっても関わないわ。あなたにあげるから持ってお帰り」</td>
+          <td data-eid="analysis_claude_59" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_59" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_60" spellcheck="false">　と云った。</td>
+          <td data-eid="analysis_claude_60" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_60" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_61" spellcheck="false">　アチャは頬を赧らめて、</td>
+          <td data-eid="analysis_claude_61" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_61" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_62" spellcheck="false">　「そうですか。では私が養います」</td>
+          <td data-eid="analysis_claude_62" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_62" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_63" spellcheck="false">　アチャが喜んで、洗面器をとりあげると、エナメル底の池は大きな波にゆれた。鯉は浅い水の中で忙しそうに呼吸をつづけ、口をまるくして白い泡をふいた。泡は頭の上でガスとなって、つづいてきえた。細君は、いつもの癖で、うつむいていたが感動していたようであった。</td>
+          <td data-eid="analysis_claude_63" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_63" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_64" spellcheck="false">　アチャは私達の着物を細君からうけとると、小腋に抱えて川にゆき、岸の娘達にまじって、それを洗った。うけとるたびに、</td>
+          <td data-eid="analysis_claude_64" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_64" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_65" spellcheck="false">　「古賀さん、中村さん、ハイカラさん」</td>
+          <td data-eid="analysis_claude_65" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_65" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_66" spellcheck="false">　と笑った。粗末な久留米飛白でも上等の品に思えるのだろう。古賀は自分の部屋から覗いて、</td>
+          <td data-eid="analysis_claude_66" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_66" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_67" spellcheck="false">　「俺の一張羅をあの川で洗ってるよ。汚いなあ」</td>
+          <td data-eid="analysis_claude_67" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_67" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_68" spellcheck="false">　とほんとに真面目に嘆息した。私は何となく気がはずんできたが、ひどく気のきかない洒落を云った。</td>
+          <td data-eid="analysis_claude_68" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_68" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_69" spellcheck="false">　「君の着物を洗っているアチャの手の上を、謹厳そうな家鴨が泳いでいるじゃないか」</td>
+          <td data-eid="analysis_claude_69" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_69" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_70" spellcheck="false">古賀はすぐつりこまれて、</td>
+          <td data-eid="analysis_claude_70" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_70" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_71" spellcheck="false">　「袂の間から鯡鯉が出て来そうだな」</td>
+          <td data-eid="analysis_claude_71" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_71" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_72" spellcheck="false">　と答えた。アチャも私達がふざけているのに気がつくと、いつものように岸の向うから笑ってみせた。アチャは横をむいて他の娘達になにかさやいた。アチャは私達の家に出入りするのが得意だった。</td>
+          <td data-eid="analysis_claude_72" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_72" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_73" spellcheck="false">　ある日、細君は土人部落の方からせかせか帰ってくると、</td>
+          <td data-eid="analysis_claude_73" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_73" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_74" spellcheck="false">　「アチャはねえ」</td>
+          <td data-eid="analysis_claude_74" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_74" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_75" spellcheck="false">　「アチャはねえ。ゆうべ豚小屋でねたんですって」と</td>
+          <td data-eid="analysis_claude_75" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_75" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_76" spellcheck="false">　「ゆうべ、お祭りの犠牲に、裏の家で豚を殺すことになったんですのよ。そうしたら、アチャは可哀想だと云って、豚と一晩あかしたんですって。お父さんや兄さんがいくらとめてもきかないで、おいおい泣いて豚に未練を口説いたんですって」</td>
+          <td data-eid="analysis_claude_76" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_76" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_77" spellcheck="false">　夜、祭礼を観に私と古賀とは土人部落へ行った。一帯が低地になっていて、その間を飛石伝いに、石畳みの道が作られている。径の曲り角などでは竹笹の穂が二人の着物にふれた。家々に蝋燭の台やアセチレン瓦斯がおいてあって、光茫は往き来する人々の晴れ着姿を照らしていた。</td>
+          <td data-eid="analysis_claude_77" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_77" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_78" spellcheck="false">　私達は民家の壁と壁の間をぬって空地にでた。石段の上に人形芝居の舞台が作られ、まわりには、人だかりがしていた。台では項羽のように鬚をのばした将軍が、羽衣の天女みたいな女を足蹴にしくて罵り、眼を大きく見開いて見得をきった。女の人形はうずくまり、肩をぴくぴく震わしてないた。</td>
+          <td data-eid="analysis_claude_78" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_78" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_79" spellcheck="false">　幕がおりると銅鑼がなった。</td>
+          <td data-eid="analysis_claude_79" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_79" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_80" spellcheck="false">　「おい、おい、アチャが来てるぜ」</td>
+          <td data-eid="analysis_claude_80" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_80" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_81" spellcheck="false">　古賀が私の横腹をついたので、みると、アチャは石段の横手の暗がりに、蘭の刺繍の入った青い服を着てたっていた。石段の影で胸を斜にきられて、明るい蝋燭の灯影に豊かな円い顔が浮いている。アチャは紅い唇を心もち開いて、放心し、胡弓の音をすいこんでいるような顔をしていた。豚を抱いて寝たというアチャの姿を私はたいへん気高いものに思いながら眺めた。</td>
+          <td data-eid="analysis_claude_81" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_81" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_82" spellcheck="false">　冬になって、内地でいえば初秋ぐらいの麗かな天気がつづいた。下宿の細君のところへ髪結いは毎朝やってきたが、主人は帰ってこず、細君は蕭々とした後姿をパパイヤの木にもたせるのであった。細君が力なく鯉をよんで、蛹を池におとすと、鯡鯉の群は足下へ集ってきては重りあい、水を薄紅をながしたようにそめるのであった。</td>
+          <td data-eid="analysis_claude_82" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_82" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_83" spellcheck="false">私はまもなく東京へでることになった。</td>
+          <td data-eid="analysis_claude_83" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_83" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_84" spellcheck="false">ーー主人の消息は未だに不明だ。孤独の生活にたえられないのであろう。この頃、真夜中の廊下を、足音のある細君の影が幾度となく僕の部屋の前にゆききする。月末には、それで、この家をでるつもりだ。アチャは男の子をうんだ。つい近頃の出産と思っていたのに、赤坊はもう豚の群と遊んでいるーー。</td>
+          <td data-eid="analysis_claude_84" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_84" spellcheck="false"></td>
+        </tr>
+        <tr>
+          <td class="jp-text" data-eid="analysis_src_85" spellcheck="false">　この秋、十日ぐらい前に私は古賀から手紙を貰った。私は、それを紅葉する一樹とてもない、東京の下宿先でひろげた。</td>
+          <td data-eid="analysis_claude_85" spellcheck="false"></td>
+          <td data-eid="analysis_gpt_85" spellcheck="false"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="tab-map">
+  <div class="section-title" data-eid="e147" spellcheck="false">文學地圖</div>
+  <div class="intro-card" data-eid="e148" spellcheck="false"><strong>閱讀提示：</strong>中村地平的「南方」不是單一地點，而是一條移動路線：宮崎的出生地、臺北高校的殖民地經驗、東京文壇、1939 年臺灣山地取材、戰時馬來半島。地圖的重點不是精準 GIS，而是文學想像如何被移動生產出來。</div>
+  <div class="map-grid">
+    <div class="map-box"><svg width="100%" viewBox="0 0 680 340" role="img" aria-label="中村地平移動路線示意圖">
+      <text x="520" y="30" font-size="11" fill="var(--muted)" opacity=".55">日本</text><text x="280" y="295" font-size="11" fill="var(--muted)" opacity=".55">臺灣</text><text x="60" y="290" font-size="11" fill="var(--muted)" opacity=".55">馬來半島</text>
+      <path d="M490,110 Q420,170 350,210" fill="none" stroke="#1D9E75" stroke-width="1.2" stroke-dasharray="4 3" opacity=".65"></path><path d="M350,210 Q430,160 510,80" fill="none" stroke="#378ADD" stroke-width="1.2" stroke-dasharray="4 3" opacity=".65"></path><path d="M510,80 Q430,150 330,240" fill="none" stroke="#D85A30" stroke-width="1.5" stroke-dasharray="5 3" opacity=".75"></path><path d="M510,80 Q340,120 120,240" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-dasharray="4 3" opacity=".65"></path><path d="M120,240 Q300,200 490,110" fill="none" stroke="#7F77DD" stroke-width="1" stroke-dasharray="3 3" opacity=".45"></path>
+      <circle cx="490" cy="110" r="9" fill="#7F77DD"></circle><circle cx="490" cy="110" r="15" fill="#7F77DD" opacity=".13"></circle><text x="510" y="105" font-size="12" font-weight="700" fill="var(--ink)">宮崎</text><text x="510" y="119" font-size="10" fill="var(--muted)">1908 出生</text>
+      <circle cx="510" cy="78" r="9" fill="#378ADD"></circle><circle cx="510" cy="78" r="15" fill="#378ADD" opacity=".13"></circle><text x="528" y="73" font-size="12" font-weight="700" fill="var(--ink)">東京</text><text x="528" y="87" font-size="10" fill="var(--muted)">1930 東大・文壇</text>
+      <circle cx="350" cy="210" r="9" fill="#1D9E75"></circle><circle cx="350" cy="210" r="15" fill="#1D9E75" opacity=".13"></circle><text x="368" y="205" font-size="12" font-weight="700" fill="var(--ink)">台北</text><text x="368" y="219" font-size="10" fill="var(--muted)">1926 台北高校</text>
+      <circle cx="330" cy="240" r="6" fill="#D85A30"></circle><circle cx="330" cy="240" r="12" fill="#D85A30" opacity=".13"></circle><text x="210" y="238" font-size="12" font-weight="700" fill="var(--ink)">臺灣原住民部落</text><text x="210" y="252" font-size="10" fill="var(--muted)">1939 取材・《蕃界之女》</text>
+      <circle cx="120" cy="240" r="8" fill="#BA7517"></circle><circle cx="120" cy="240" r="14" fill="#BA7517" opacity=".13"></circle><text x="60" y="225" font-size="12" font-weight="700" fill="var(--ink)">馬來半島</text><text x="60" y="238" font-size="10" fill="var(--muted)">1943 報道班員</text>
+      <text x="398" y="162" font-size="10" fill="#1D9E75">1926 →</text><text x="445" y="130" font-size="10" fill="#378ADD">1930 →</text><text x="250" y="148" font-size="10" fill="#BA7517">1943 →</text>
+    </svg></div>
+    <div class="map-side">
+      <div class="place-card"><h3>宮崎｜南方感性的原點</h3><p>故鄉並不是「北方」，而是他日後理解南方、鄉土與身體感覺的基底。</p></div>
+      <div class="place-card"><h3>臺北｜殖民地城市經驗</h3><p>臺北高校時代讓文學想像變成生活經驗，但這份經驗仍需放回殖民地制度中閱讀。</p></div>
+      <div class="place-card"><h3>臺灣山地｜取材與凝視</h3><p>1939 年取材旅行催生核心作品，也暴露出浪漫化原住民部落的觀看結構。</p></div>
+      <div class="place-card"><h3>馬來半島｜戰時南方</h3><p>南方不再只是憧憬，而被軍事動員與報道班書寫重新改造。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tab-people">
+  <div class="section-title" data-eid="e149" spellcheck="false">人物網絡</div>
+  <div class="intro-card" data-eid="e150" spellcheck="false"><strong>改版重點：</strong>人物關係不再只做「佐藤春夫—中村地平—真杉靜枝」三角，而是擴大成多圈層網絡：啟蒙與師承、台北高校制度場域、《足跡》友人圈、同門與文壇媒介、臺灣／南方連結、戰時報道班、戰後宮崎地方網絡，以及「未直接往來」的臺灣本島作家空白。這一頁的設計保留原本紙感、卡片、色系與分頁風格，只擴充內容密度。</div>
+
+  <div class="relation-note">
+    <div class="note-mini"><h4>直接關係</h4><p>曾有師承、交往、同行、任職或明確文學往來者，例如井伏鱒二、太宰治、真杉靜枝。</p></div>
+    <div class="note-mini"><h4>間接關係</h4><p>透過他人、作品、文學場域產生影響，例如武者小路實篤、佐藤春夫的臺灣小說。</p></div>
+    <div class="note-mini"><h4>制度關係</h4><p>學校、報社、報道班、圖書館、銀行等制度節點，說明作家的移動與身份轉換。</p></div>
+    <div class="note-mini"><h4>對照／空白</h4><p>不一定有直接往來，但能顯示視野邊界，例如龍瑛宗、呂赫若、張文環與本島文壇。</p></div>
+  </div>
+
+  <div class="network-wrap"><div class="network-title" data-eid="e151" spellcheck="false">人物關係示意圖</div><div class="network-scroll"><svg class="network-svg" width="100%" viewBox="0 0 1160 780" role="img" aria-label="中村地平人物網絡圖：台北高校與足跡友人圈擴充版">
+    <defs><marker id="arrowNet" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></marker></defs>
+    <rect x="40" y="230" width="390" height="360" rx="20" fill="rgba(122,74,10,.055)" stroke="rgba(90,62,0,.18)" stroke-width="1"></rect>
+    <text x="60" y="258" font-size="15" fill="var(--sepia-dk)" font-weight="600">台北高校制度場域</text>
+    <text x="60" y="280" font-size="11" fill="var(--muted)">文藝部・美術部・校刊・同人誌</text>
+    <line x1="560" y1="380" x2="250" y2="410" class="network-link strong"></line>
+    <line x1="560" y1="380" x2="520" y2="140" class="network-link strong"></line>
+    <line x1="560" y1="380" x2="290" y2="650" class="network-link"></line>
+    <line x1="560" y1="380" x2="790" y2="235" class="network-link strong"></line>
+    <line x1="560" y1="380" x2="835" y2="450" class="network-link strong"></line>
+    <line x1="560" y1="380" x2="640" y2="655" class="network-link"></line>
+    <line x1="250" y1="410" x2="185" y2="335" class="network-link strong"></line>
+    <line x1="250" y1="410" x2="165" y2="455" class="network-link"></line>
+    <line x1="250" y1="410" x2="300" y2="505" class="network-link"></line>
+    <line x1="250" y1="410" x2="345" y2="345" class="network-link"></line>
+    <line x1="250" y1="410" x2="350" y2="445" class="network-link"></line>
+    <line x1="250" y1="410" x2="145" y2="540" class="network-link"></line>
+    <line x1="250" y1="410" x2="95" y2="385" class="network-link"></line>
+    <line x1="250" y1="410" x2="145" y2="260" class="network-link"></line>
+    <line x1="250" y1="410" x2="355" y2="280" class="network-link"></line>
+    <line x1="145" y1="260" x2="80" y2="310" class="network-link"></line>
+    <line x1="185" y1="335" x2="80" y2="310" class="network-link"></line>
+    <line x1="185" y1="335" x2="145" y2="260" class="network-link"></line>
+    <line x1="520" y1="140" x2="400" y2="85" class="network-link"></line><line x1="520" y1="140" x2="640" y2="75" class="network-link"></line><line x1="520" y1="140" x2="520" y2="58" class="network-link"></line>
+    <line x1="640" y1="75" x2="760" y2="85" class="network-link"></line><line x1="760" y1="85" x2="855" y2="115" class="network-link"></line>
+    <line x1="790" y1="235" x2="940" y2="135" class="network-link"></line><line x1="790" y1="235" x2="970" y2="255" class="network-link"></line><line x1="970" y1="255" x2="1015" y2="365" class="network-link"></line>
+    <line x1="835" y1="450" x2="995" y2="430" class="network-link"></line><line x1="835" y1="450" x2="990" y2="535" class="network-link"></line>
+    <line x1="290" y1="650" x2="135" y2="690" class="network-link"></line><line x1="290" y1="650" x2="285" y2="735" class="network-link"></line><line x1="290" y1="650" x2="445" y2="735" class="network-link"></line>
+    <line x1="640" y1="655" x2="795" y2="655" class="network-link"></line><line x1="640" y1="655" x2="810" y2="725" class="network-link"></line>
+    <g class="network-node"><circle cx="560" cy="380" r="54" class="node-core"></circle><text x="560" y="374" text-anchor="middle" font-size="17" fill="#fff">中村</text><text x="560" y="395" text-anchor="middle" font-size="17" fill="#fff">地平</text></g>
+    <g><circle cx="250" cy="410" r="44" class="node-taiwan"></circle><text x="250" y="402" text-anchor="middle" font-size="14" fill="#fff">台北</text><text x="250" y="421" text-anchor="middle" font-size="14" fill="#fff">高校</text></g>
+    <g><circle cx="185" cy="335" r="34" class="node-peer"></circle><text x="185" y="331" text-anchor="middle" font-size="12" fill="#fff">《足跡》</text><text x="185" y="347" text-anchor="middle" font-size="10" fill="#fff">同人誌</text></g>
+    <g><circle cx="165" cy="455" r="28" class="node-peer"></circle><text x="165" y="459" text-anchor="middle" font-size="11" fill="#fff">濱田隼雄</text></g>
+    <g><circle cx="300" cy="505" r="28" class="node-peer"></circle><text x="300" y="501" text-anchor="middle" font-size="11" fill="#fff">蔭山泰敏</text><text x="300" y="515" text-anchor="middle" font-size="9" fill="#fff">大場泰</text></g>
+    <g><circle cx="345" cy="345" r="26" class="node-peer"></circle><text x="345" y="349" text-anchor="middle" font-size="11" fill="#fff">鹽月赳</text></g>
+    <g><circle cx="350" cy="445" r="26" class="node-peer"></circle><text x="350" y="449" text-anchor="middle" font-size="11" fill="#fff">今澤正雄</text></g>
+    <g><circle cx="145" cy="540" r="26" class="node-peer"></circle><text x="145" y="544" text-anchor="middle" font-size="11" fill="#fff">土方正已</text></g>
+    <g><circle cx="95" cy="385" r="25" class="node-peer"></circle><text x="95" y="389" text-anchor="middle" font-size="11" fill="#fff">《翔風》</text></g>
+    <g><circle cx="145" cy="260" r="28" class="node-teacher"></circle><text x="145" y="256" text-anchor="middle" font-size="11" fill="#fff">鹽月</text><text x="145" y="271" text-anchor="middle" font-size="11" fill="#fff">桃甫</text></g>
+    <g><circle cx="80" cy="310" r="25" class="node-teacher"></circle><text x="80" y="306" text-anchor="middle" font-size="11" fill="#fff">美術部</text><text x="80" y="321" text-anchor="middle" font-size="9" fill="#fff">裝幀</text></g>
+    <g><circle cx="355" cy="280" r="27" class="node-gap"></circle><text x="355" y="276" text-anchor="middle" font-size="11" fill="#fff">鹿野</text><text x="355" y="291" text-anchor="middle" font-size="11" fill="#fff">忠雄</text></g>
+    <g><circle cx="520" cy="140" r="38" class="node-teacher"></circle><text x="520" y="136" text-anchor="middle" font-size="13" fill="#fff">井伏</text><text x="520" y="153" text-anchor="middle" font-size="13" fill="#fff">鱒二</text></g>
+    <g><circle cx="400" cy="85" r="28" class="node-teacher"></circle><text x="400" y="81" text-anchor="middle" font-size="11" fill="#fff">佐藤</text><text x="400" y="96" text-anchor="middle" font-size="11" fill="#fff">春夫</text></g>
+    <g><circle cx="520" cy="58" r="25" class="node-peer"></circle><text x="520" y="62" text-anchor="middle" font-size="11" fill="#fff">《作品》</text></g>
+    <g><circle cx="640" cy="75" r="25" class="node-peer"></circle><text x="640" y="79" text-anchor="middle" font-size="11" fill="#fff">太宰治</text></g>
+    <g><circle cx="760" cy="85" r="25" class="node-peer"></circle><text x="760" y="89" text-anchor="middle" font-size="11" fill="#fff">小山祐士</text></g>
+    <g><circle cx="855" cy="115" r="25" class="node-peer"></circle><text x="855" y="119" text-anchor="middle" font-size="11" fill="#fff">阿佐谷</text></g>
+    <g><circle cx="790" cy="235" r="38" class="node-taiwan"></circle><text x="790" y="231" text-anchor="middle" font-size="13" fill="#fff">真杉</text><text x="790" y="248" text-anchor="middle" font-size="13" fill="#fff">靜枝</text></g>
+    <g><circle cx="940" cy="135" r="28" class="node-taiwan"></circle><text x="940" y="139" text-anchor="middle" font-size="11" fill="#fff">武者小路</text></g>
+    <g><circle cx="970" cy="255" r="31" class="node-taiwan"></circle><text x="970" y="251" text-anchor="middle" font-size="11" fill="#fff">臺灣</text><text x="970" y="267" text-anchor="middle" font-size="11" fill="#fff">山地</text></g>
+    <g><circle cx="1015" cy="365" r="28" class="node-gap"></circle><text x="1015" y="361" text-anchor="middle" font-size="11" fill="#fff">被觀看</text><text x="1015" y="376" text-anchor="middle" font-size="11" fill="#fff">者</text></g>
+    <g><circle cx="835" cy="450" r="34" class="node-war"></circle><text x="835" y="446" text-anchor="middle" font-size="12" fill="#fff">陸軍</text><text x="835" y="462" text-anchor="middle" font-size="12" fill="#fff">報道班</text></g>
+    <g><circle cx="995" cy="430" r="26" class="node-war"></circle><text x="995" y="434" text-anchor="middle" font-size="11" fill="#fff">小田嶽夫</text></g>
+    <g><circle cx="990" cy="535" r="26" class="node-war"></circle><text x="990" y="539" text-anchor="middle" font-size="11" fill="#fff">北町一郎</text></g>
+    <g><circle cx="290" cy="650" r="32" class="node-local"></circle><text x="290" y="646" text-anchor="middle" font-size="12" fill="#fff">宮崎</text><text x="290" y="662" text-anchor="middle" font-size="12" fill="#fff">地方</text></g>
+    <g><circle cx="135" cy="690" r="26" class="node-local"></circle><text x="135" y="694" text-anchor="middle" font-size="11" fill="#fff">中村常三郎</text></g>
+    <g><circle cx="285" cy="735" r="26" class="node-local"></circle><text x="285" y="739" text-anchor="middle" font-size="11" fill="#fff">黑木清次</text></g>
+    <g><circle cx="445" cy="735" r="26" class="node-local"></circle><text x="445" y="739" text-anchor="middle" font-size="11" fill="#fff">銀行</text></g>
+    <g><circle cx="640" cy="655" r="34" class="node-gap"></circle><text x="640" y="651" text-anchor="middle" font-size="12" fill="#fff">本島文壇</text><text x="640" y="667" text-anchor="middle" font-size="12" fill="#fff">空白</text></g>
+    <g><circle cx="795" cy="655" r="28" class="node-gap"></circle><text x="795" y="651" text-anchor="middle" font-size="11" fill="#fff">龍・呂</text><text x="795" y="666" text-anchor="middle" font-size="11" fill="#fff">張</text></g>
+    <g><circle cx="810" cy="725" r="28" class="node-gap"></circle><text x="810" y="721" text-anchor="middle" font-size="11" fill="#fff">西川滿</text><text x="810" y="736" text-anchor="middle" font-size="10" fill="#fff">文藝台灣</text></g>
+    <text x="330" y="392" class="edge-label">求學・制度入口</text><text x="200" y="310" class="edge-label">同人誌核心</text><text x="92" y="245" class="edge-label">美術／裝幀</text><text x="360" y="310" class="edge-label">同校平行</text><text x="530" y="250" class="edge-label">師承</text><text x="602" y="95" class="edge-label">同門</text><text x="680" y="285" class="edge-label">戀愛／取材</text><text x="740" y="425" class="edge-label">戰時動員</text><text x="390" y="595" class="edge-label">歸鄉轉型</text><text x="670" y="610" class="edge-label">對照與空白</text>
+  </svg></div></div>
+
+  <table class="relation-table"><thead><tr><th>關係類型</th><th>核心節點</th><th>研究用途</th></tr></thead><tbody>
+    <tr><td>師承／啟蒙</td><td>佐藤春夫、井伏鱒二、《作品》誌</td><td>說明地平如何從閱讀佐藤臺灣小說，進入井伏門下與東京文壇。</td></tr>
+    <tr><td>台北高校／同人誌</td><td>台北高校、《足跡》、《翔風》、濱田隼雄、蔭山泰敏、鹽月赳等</td><td>把中村地平的南方文學放回高校制度、學生刊物、美術部與文藝部的共同場域。</td></tr>
+    <tr><td>同門／衝突</td><td>太宰治、小山祐士、檀一雄、林芙美子等</td><td>可追蹤「北太宰、南地平」如何由同門關係轉為文學氣質對位。</td></tr>
+    <tr><td>臺灣／南方</td><td>真杉靜枝、武者小路實篤、台北高校、臺灣山地</td><td>將戀愛、取材、殖民地教育與被觀看者放在同一張網裡，而非只講羅曼史。</td></tr>
+    <tr><td>戰時／制度</td><td>陸軍報道班、小田嶽夫、北町一郎</td><td>指出「南方」不只是一種憧憬，也被戰爭與帝國動員重新編碼。</td></tr>
+    <tr><td>地方／轉型</td><td>中村常三郎、宮崎縣立圖書館、黑木清次、銀行</td><td>呈現戰後地平從作家轉向地方文化人與銀行家的收束路徑。</td></tr>
+    <tr><td>空白／對照</td><td>龍瑛宗、呂赫若、張文環、西川滿與《文藝台灣》圈</td><td>不是硬湊關係，而是把「沒有直接往來」變成殖民地文學場域的提問。</td></tr>
+  </tbody></table>
+
+  <div class="people-section"><div class="people-section-title" data-eid="e152" spellcheck="false">一、啟蒙、師承與文壇入口</div><div class="people-grid">
+    <div class="person-card teacher"><div class="relation-type" data-eid="e153" spellcheck="false">文學啟蒙</div><div class="person-name" data-eid="e154" spellcheck="false">佐藤春夫</div><div class="person-role" data-eid="e155" spellcheck="false">詩人、小說家（1892–1964）</div><div class="person-relation" data-eid="e156" spellcheck="false">地平文學啟蒙的遠源。佐藤的臺灣小說點燃他對南方的憧憬，地平出道作亦獲佐藤賞識。這條線可與佐藤春夫臺灣書寫專題互連，成為本網站日後擴張的第一條支線。</div></div>
+    <div class="person-card teacher"><div class="relation-type" data-eid="e157" spellcheck="false">文學師承</div><div class="person-name" data-eid="e158" spellcheck="false">井伏鱒二</div><div class="person-role" data-eid="e159" spellcheck="false">小說家（1898–1993），《山椒魚》作者</div><div class="person-relation" data-eid="e160" spellcheck="false">中村地平的文學恩師。地平與太宰治、小山祐士並稱「井伏門下三羽烏」。戰時亦同赴馬來半島，地平逝後井伏撰追悼文。此人是「文學師承」與「戰時同行」兩個網絡的交會點。</div></div>
+    <div class="person-card institution"><div class="relation-type" data-eid="e161" spellcheck="false">發表媒介</div><div class="person-name" data-eid="e162" spellcheck="false">《作品》誌</div><div class="person-role" data-eid="e163" spellcheck="false">地平出道作發表場域</div><div class="person-relation" data-eid="e164" spellcheck="false">〈熱帶柳的種子〉在《作品》誌發表，是地平進入文壇的入口。後續若補初出資料，可把刊物作為「作品—作家—文壇」之間的中介節點。</div></div>
+    <div class="person-card institution"><div class="relation-type" data-eid="e165" spellcheck="false">職業場域</div><div class="person-name" data-eid="e166" spellcheck="false">都新聞社</div><div class="person-role" data-eid="e167" spellcheck="false">文化部記者工作地</div><div class="person-relation" data-eid="e168" spellcheck="false">地平 1934 年進入都新聞社文化部。這一節點提醒我們：作家並非只活在文學圈，也在媒體制度與都市文化生產中移動。</div></div>
+  </div></div>
+
+  <div class="people-section"><div class="people-section-title" data-eid="e169" spellcheck="false">二、同門、衝突與東京文壇圈</div><div class="people-grid">
+    <div class="person-card peer"><div class="relation-type" data-eid="e170" spellcheck="false">同門／對位</div><div class="person-name" data-eid="e171" spellcheck="false">太宰治</div><div class="person-role" data-eid="e172" spellcheck="false">小說家（1909–1948）</div><div class="person-relation" data-eid="e173" spellcheck="false">東大試場初識，同為井伏門下。〈失踪〉與〈喝采〉形成交互針鋒；「北太宰、南地平」可視為兩種文學氣質的對位：內向的自我崩壞與外向的南方投射。</div></div>
+    <div class="person-card peer"><div class="relation-type" data-eid="e174" spellcheck="false">同門</div><div class="person-name" data-eid="e175" spellcheck="false">小山祐士</div><div class="person-role" data-eid="e176" spellcheck="false">劇作家、小說家</div><div class="person-relation" data-eid="e177" spellcheck="false">同為井伏門下三羽烏之一，與地平、太宰並列為井伏門下的重要年輕作家。可作為補足井伏門下群像的節點。</div></div>
+    <div class="person-card peer"><div class="relation-type" data-eid="e178" spellcheck="false">東京文藝圈</div><div class="person-name" data-eid="e179" spellcheck="false">林芙美子</div><div class="person-role" data-eid="e180" spellcheck="false">小說家（1903–1951），《放浪記》作者</div><div class="person-relation" data-eid="e181" spellcheck="false">地平入東大後借住其宅附近，出入林宅文藝圈，是其東京時期重要的生活與交友空間。這個節點可用來呈現「住處」如何成為文學網絡。</div></div>
+    <div class="person-card peer"><div class="relation-type" data-eid="e182" spellcheck="false">阿佐谷文人圈</div><div class="person-name" data-eid="e183" spellcheck="false">檀一雄</div><div class="person-role" data-eid="e184" spellcheck="false">小說家（1912–1976）</div><div class="person-relation" data-eid="e185" spellcheck="false">東大時期起結交，屬阿佐谷文人圈一員，與地平往來密切，並留有相關記述。後續可補回憶錄與年譜依據。</div></div>
+    <div class="person-card peer"><div class="relation-type" data-eid="e186" spellcheck="false">文壇交友</div><div class="person-name" data-eid="e187" spellcheck="false">尾崎一雄</div><div class="person-role" data-eid="e188" spellcheck="false">小說家</div><div class="person-relation" data-eid="e189" spellcheck="false">目前先作為地平東京文壇交友圈節點保留。下一階段應補具體往來紀錄、作品評論或回憶文字，不宜只憑「同時代」建立強關係。</div></div>
+    <div class="person-card peer"><div class="relation-type" data-eid="e190" spellcheck="false">文壇交友</div><div class="person-name" data-eid="e191" spellcheck="false">浅見淵</div><div class="person-role" data-eid="e192" spellcheck="false">評論家、文學相關人士</div><div class="person-relation" data-eid="e193" spellcheck="false">作為東京文壇外圍節點。此類人物適合標成「待校核」，避免網絡圖過度實體化。說白了，線不要亂牽，牽錯很像文學史版月老。</div></div>
+  </div></div>
+
+<div class="people-section"><div class="people-section-title" data-eid="e194" spellcheck="false">三、台北高校與《足跡》友人圈</div><div class="people-grid">
+    <div class="person-card institution"><div class="relation-type" data-eid="e195" spellcheck="false">制度入口／獨立節點</div><div class="person-name" data-eid="e196" spellcheck="false">臺灣總督府立台北高等學校</div><div class="person-role" data-eid="e197" spellcheck="false">中村地平 1926–1930 年求學地</div><div class="person-relation" data-eid="e198" spellcheck="false">這一版將台北高校從「背景」提升為獨立節點。它連接文藝部、美術部、校刊《翔風》與同人誌《足跡》，是中村地平把閱讀中的南方憧憬轉化為校園創作實踐的制度場域。</div></div>
+    <div class="person-card institution"><div class="relation-type" data-eid="e199" spellcheck="false">同人誌核心</div><div class="person-name" data-eid="e200" spellcheck="false">《足跡》</div><div class="person-role" data-eid="e201" spellcheck="false">1927 年創刊，至 1928 年第三號終刊</div><div class="person-relation" data-eid="e202" spellcheck="false">由中村地平、濱田隼雄、鹽月赳、今澤正雄、蔭山泰敏、土方正已等同人發起。它雖只走了三步，卻是中村高校文學活動的火種；後續應以三期目次、筆名與作品分工建立「刊物共現」資料表。</div></div>
+    <div class="person-card institution"><div class="relation-type" data-eid="e203" spellcheck="false">校刊平台</div><div class="person-name" data-eid="e204" spellcheck="false">《翔風》</div><div class="person-role" data-eid="e205" spellcheck="false">台北高等學校學友會刊物</div><div class="person-relation" data-eid="e206" spellcheck="false">《足跡》終刊後，中村地平等人的發表場域轉向《翔風》。它不是附屬刊物，而是連接日本學生、臺籍學生、教師與校園文藝制度的重要平台。</div></div>
+    <div class="person-card peer"><div class="relation-type" data-eid="e207" spellcheck="false">《足跡》同人／平行作家</div><div class="person-name" data-eid="e208" spellcheck="false">濱田隼雄</div><div class="person-role" data-eid="e209" spellcheck="false">小說家，後為臺灣書寫重要日籍作家</div><div class="person-relation" data-eid="e210" spellcheck="false">中村地平在台北高校的核心同輩。兩人同在《足跡》起步，後來都書寫臺灣；中村偏向山地、原住民與南方浪漫，濱田則可與《南方移民村》等殖民地現實書寫對讀。</div></div>
+    <div class="person-card peer"><div class="relation-type" data-eid="e211" spellcheck="false">《足跡》同人／文學與美術交會</div><div class="person-name" data-eid="e212" spellcheck="false">蔭山泰敏</div><div class="person-role" data-eid="e213" spellcheck="false">筆名大場泰；文藝部、美術部成員</div><div class="person-relation" data-eid="e214" spellcheck="false">以「大場泰」名義在《足跡》發表作品，並參與台北高校文藝部與美術部。此人讓《足跡》不只是文學圈，而是文學、封面、插畫、校刊設計交會的文化場。</div></div>
+    <div class="person-card peer"><div class="relation-type" data-eid="e215" spellcheck="false">《足跡》同人／美術系譜</div><div class="person-name" data-eid="e216" spellcheck="false">鹽月赳</div><div class="person-role" data-eid="e217" spellcheck="false">台北高校學生，鹽月桃甫之子</div><div class="person-relation" data-eid="e218" spellcheck="false">《足跡》同人之一，並透過父親鹽月桃甫連接台北高校美術教育脈絡。其位置提醒我們：同人誌不只是文字青年，也與美術部、裝幀與殖民地現代設計相連。</div></div>
+    <div class="person-card teacher"><div class="relation-type" data-eid="e219" spellcheck="false">美術教師／裝幀支援</div><div class="person-name" data-eid="e220" spellcheck="false">鹽月桃甫</div><div class="person-role" data-eid="e221" spellcheck="false">畫家、台北高校圖畫教師</div><div class="person-relation" data-eid="e222" spellcheck="false">《足跡》封面由鹽月桃甫繪製；中村地平部分書籍亦與其封面設計相關。此節點把「南方」從主題推進到視覺形式：芭蕉、色彩、封面本身也在製造南方感。</div></div>
+    <div class="person-card peer"><div class="relation-type" data-eid="e223" spellcheck="false">《足跡》同人／待補作品</div><div class="person-name" data-eid="e224" spellcheck="false">今澤正雄</div><div class="person-role" data-eid="e225" spellcheck="false">《足跡》同人；筆名網野正雄</div><div class="person-relation" data-eid="e226" spellcheck="false">目前可先確認其為《足跡》同人之一，且在目次中以「網野正雄」名義出現。後續應補其科別、作品、是否延續文學活動，避免讓未成名者從文學史邊緣再次消失。</div></div>
+    <div class="person-card peer"><div class="relation-type" data-eid="e227" spellcheck="false">《足跡》同人</div><div class="person-name" data-eid="e228" spellcheck="false">土方正巳</div><div class="person-role" data-eid="e229" spellcheck="false">《足跡》同人，詩與散文詩作者</div><div class="person-relation" data-eid="e230" spellcheck="false"><span style="font-size: 13.12px;">為《足跡》同人之一，</span>其在《足跡》目次中出現詩作，適合後續從三期原刊確認表記與作品。</div></div>
+    <div class="person-card comparison"><div class="relation-type" data-eid="e231" spellcheck="false">同校平行／山地知識對照</div><div class="person-name" data-eid="e232" spellcheck="false">鹿野忠雄</div><div class="person-role" data-eid="e233" spellcheck="false">博物學、登山、民族學研究者</div><div class="person-relation" data-eid="e234" spellcheck="false">與中村在台北高校時間重疊，並被相關資料列為友人圈之一，但不宜寫成《足跡》同人。可作為「山地知識」的平行對照：中村文學化地觀看山地，鹿野則以調查、採集與學術研究進入山地。</div></div>
+    <div class="person-card teacher"><div class="relation-type" data-eid="e235" spellcheck="false">文藝部／教師節點</div><div class="person-name" data-eid="e236" spellcheck="false">林原耕三</div><div class="person-role" data-eid="e237" spellcheck="false">台北高校教師，文藝部相關師長</div><div class="person-relation" data-eid="e238" spellcheck="false">可作為校園文藝制度的師長節點。後續若能補文藝部紀錄或《翔風》資料，可進一步確認其在學生刊物、創作指導與校園文學氣氛中的角色。</div></div>
+    <div class="person-card teacher"><div class="relation-type" data-eid="e239" spellcheck="false">教師／文學指導</div><div class="person-name" data-eid="e240" spellcheck="false">杉山產七</div><div class="person-role" data-eid="e241" spellcheck="false">台北高校德語教師</div><div class="person-relation" data-eid="e242" spellcheck="false">宮崎縣立圖書館資料提及中村在校時受到杉山等教授的文學指導。此節點暫列「教師影響」，後續可查《臺北高等學校一覧》與回憶資料補強。</div></div>
+  </div></div>
+
+    <div class="people-section"><div class="people-section-title" data-eid="e243" spellcheck="false">四、臺灣、南方與被觀看者</div><div class="people-grid">
+    <div class="person-card taiwan"><div class="relation-type" data-eid="e244" spellcheck="false">戀人／同行取材</div><div class="person-name" data-eid="e245" spellcheck="false">真杉靜枝</div><div class="person-role" data-eid="e246" spellcheck="false">小說家（1900–1955），幼年起成長於臺灣</div><div class="person-relation" data-eid="e247" spellcheck="false">中村地平的戀人。1939 年兩人同赴臺灣旅行取材，直接催生地平臺灣系列作品。她不是附屬角色，而是另一種殖民地臺灣經驗的書寫者。</div></div>
+    <div class="person-card taiwan"><div class="relation-type" data-eid="e248" spellcheck="false">間接影響</div><div class="person-name" data-eid="e249" spellcheck="false">武者小路實篤</div><div class="person-role" data-eid="e250" spellcheck="false">小說家（1885–1976）</div><div class="person-relation" data-eid="e251" spellcheck="false">真杉靜枝的前情人。其人道主義立場與殖民地臺灣議題，可作為理解真杉—地平關係的外圍脈絡。此節點屬間接關係，不宜寫成地平直接師承。</div></div>
+    <div class="person-card taiwan"><div class="relation-type" data-eid="e252" spellcheck="false">取材對象／被觀看者</div><div class="person-name" data-eid="e253" spellcheck="false">臺灣原住民部落</div><div class="person-role" data-eid="e254" spellcheck="false">地平臺灣系列作品核心場域</div><div class="person-relation" data-eid="e255" spellcheck="false">這裡不應只作為「背景」。後續可將其拆成「地點、族群、文本描寫、殖民語彙」四個層次，以避免把被書寫者再次變成風景。</div></div>
+    <div class="person-card comparison"><div class="relation-type" data-eid="e256" spellcheck="false">方法提醒</div><div class="person-name" data-eid="e257" spellcheck="false">被觀看者的位置</div><div class="person-role" data-eid="e258" spellcheck="false">殖民地書寫的倫理節點</div><div class="person-relation" data-eid="e259" spellcheck="false">人物網絡不能只列作家。若作品中的原住民女性、山地部落、地方嚮導都只被放成風景，網站就會複製文本的凝視。這個節點是提醒，不是裝飾。</div></div>
+  </div></div>
+
+  <div class="people-section"><div class="people-section-title" data-eid="e260" spellcheck="false">五、戰時報道班與南洋經驗</div><div class="people-grid">
+    <div class="person-card war"><div class="relation-type" data-eid="e261" spellcheck="false">制度節點</div><div class="person-name" data-eid="e262" spellcheck="false">陸軍報道班</div><div class="person-role" data-eid="e263" spellcheck="false">戰時文化動員機制</div><div class="person-relation" data-eid="e264" spellcheck="false">地平作為報道班員赴馬來半島，意味著「南方」從文學憧憬變成帝國戰爭動員的一部分。這是網站批判軸線最該保留的節點之一。</div></div>
+    <div class="person-card war"><div class="relation-type" data-eid="e265" spellcheck="false">戰時同行</div><div class="person-name" data-eid="e266" spellcheck="false">小田嶽夫</div><div class="person-role" data-eid="e267" spellcheck="false">小說家（1898–1992）</div><div class="person-relation" data-eid="e268" spellcheck="false">同赴馬來半島的軍中戰友，留下對地平性格與南方感性的回憶。可作為理解戰時南方書寫的重要旁證。</div></div>
+    <div class="person-card war"><div class="relation-type" data-eid="e269" spellcheck="false">報道班同仁</div><div class="person-name" data-eid="e270" spellcheck="false">北町一郎</div><div class="person-role" data-eid="e271" spellcheck="false">小說家</div><div class="person-relation" data-eid="e272" spellcheck="false">同被徵召赴馬來半島的報道班文官同仁。此圈層能把地平的「南方」從文學憧憬推向帝國戰爭動員。</div></div>
+  </div></div>
+
+  <div class="people-section"><div class="people-section-title" data-eid="e273" spellcheck="false">六、戰後宮崎地方網絡</div><div class="people-grid">
+    <div class="person-card local"><div class="relation-type" data-eid="e274" spellcheck="false">家族／地方資本</div><div class="person-name" data-eid="e275" spellcheck="false">中村常三郎</div><div class="person-role" data-eid="e276" spellcheck="false">實業家，地平之父</div><div class="person-relation" data-eid="e277" spellcheck="false">宮崎地方資本與銀行家身份的家族背景，使地平戰後從文學轉向地方行政、圖書館與銀行經營，形成文學生命的現實收束。</div></div>
+    <div class="person-card local"><div class="relation-type" data-eid="e278" spellcheck="false">地方文化</div><div class="person-name" data-eid="e279" spellcheck="false">宮崎縣立圖書館</div><div class="person-role" data-eid="e280" spellcheck="false">地平戰後任館長的文化機構</div><div class="person-relation" data-eid="e281" spellcheck="false">地平任圖書館館長後，文學身份轉為地方文化行政角色。這一節點可幫助讀者理解戰後轉型，而不是只把他停在「南方文學旗手」。</div></div>
+    <div class="person-card local"><div class="relation-type" data-eid="e282" spellcheck="false">地方文化</div><div class="person-name" data-eid="e283" spellcheck="false">黑木清次</div><div class="person-role" data-eid="e284" spellcheck="false">詩人</div><div class="person-relation" data-eid="e285" spellcheck="false">與地平共同創作宮崎縣立圖書館館歌。這條線可補足地平戰後地方文化人的身分。</div></div>
+    <div class="person-card local"><div class="relation-type" data-eid="e286" spellcheck="false">職業轉型</div><div class="person-name" data-eid="e287" spellcheck="false">宮崎相互銀行</div><div class="person-role" data-eid="e288" spellcheck="false">地平晚年任職與接任社長的金融機構</div><div class="person-relation" data-eid="e289" spellcheck="false">銀行節點顯示地平晚年的身分轉換。文學的南方熱帶風，最後吹回地方銀行辦公室，這不是失敗，而是現實的重量。</div></div>
+  </div></div>
+
+  <div class="people-section"><div class="people-section-title" data-eid="e290" spellcheck="false">七、沒有直接往來的臺灣本島作家：空白作為問題</div><div class="people-grid">
+    <div class="person-card gap"><div class="relation-type" data-eid="e291" spellcheck="false">關係空白</div><div class="person-name" data-eid="e292" spellcheck="false">龍瑛宗</div><div class="person-role" data-eid="e293" spellcheck="false">日治時期臺灣本島籍作家</div><div class="person-relation" data-eid="e294" spellcheck="false">目前整理資料中尚無明確直接往來記載。可作為「都市臺灣文學場」與地平南方想像之間的對照節點。</div></div>
+    <div class="person-card gap"><div class="relation-type" data-eid="e295" spellcheck="false">關係空白</div><div class="person-name" data-eid="e296" spellcheck="false">呂赫若</div><div class="person-role" data-eid="e297" spellcheck="false">日治時期臺灣本島籍作家</div><div class="person-relation" data-eid="e298" spellcheck="false">若無直接往來，空白本身就值得追問：地平的取材路線是否繞過了臺灣本島知識分子的文學現場？</div></div>
+    <div class="person-card gap"><div class="relation-type" data-eid="e299" spellcheck="false">關係空白</div><div class="person-name" data-eid="e300" spellcheck="false">張文環</div><div class="person-role" data-eid="e301" spellcheck="false">日治時期臺灣本島籍作家</div><div class="person-relation" data-eid="e302" spellcheck="false">可與《文藝台灣》圈、在臺日人文壇進行對照。這裡的重點不是說他們有關係，而是標出沒有交集的結構性意義。</div></div>
+    <div class="person-card gap"><div class="relation-type" data-eid="e303" spellcheck="false">平行文壇</div><div class="person-name" data-eid="e304" spellcheck="false">西川滿與《文藝台灣》圈</div><div class="person-role" data-eid="e305" spellcheck="false">在臺日人文壇節點</div><div class="person-relation" data-eid="e306" spellcheck="false">可作為比較對象：地平身在東京，與西川滿在臺日人文壇圈不完全重疊。兩者同樣書寫臺灣，卻站在不同制度位置與文學場域。</div></div>
+    <div class="person-card comparison"><div class="relation-type" data-eid="e307" spellcheck="false">比較框架</div><div class="person-name" data-eid="e308" spellcheck="false">臺灣都市知識分子網絡</div><div class="person-role" data-eid="e309" spellcheck="false">研究對照節點</div><div class="person-relation" data-eid="e310" spellcheck="false">這不是單一人物，而是研究問題：中村地平的臺灣，為什麼更容易通向山地、原住民與異域，而不是通向都市、報刊與本島文學青年？這個問題很狠，也很必要。</div></div>
+  </div></div>
+</section>
+
+<section class="section" id="tab-questions">
+  <div class="section-title" data-eid="e311" spellcheck="false">研究視角</div>
+  <div class="intro-card" data-eid="e312" spellcheck="false"><strong>網站定位：</strong>這不是作家紀念館，也不是粉絲頁，而是一個可持續擴張的研究入口。喜歡一位作家，仍要審問他的觀看位置；否則南方一吹，研究就會變成熱帶濾鏡。</div>
+  <div class="question-grid">
+    <div class="question-card"><div class="q-no" data-eid="e313" spellcheck="false">01</div><h3 data-eid="e314" spellcheck="false">南方文學如何被製造？</h3><p data-eid="e315" spellcheck="false">中村地平的「南方」包含宮崎、臺灣、南洋，也包含文學閱讀、旅行取材與戰時動員。它不是自然存在的地理，而是被文本、制度與移動共同生產的想像。</p></div>
+    <div class="question-card"><div class="q-no" data-eid="e316" spellcheck="false">02</div><h3 data-eid="e317" spellcheck="false">臺灣是現實還是異域？</h3><p data-eid="e318" spellcheck="false">臺北高校經驗讓地平接觸殖民地臺灣，但臺灣系列作品又常把山地部落浪漫化。現實經驗如何轉換成異域敘事，是網站最重要的批判核心。</p></div>
+    <div class="question-card"><div class="q-no" data-eid="e319" spellcheck="false">03</div><h3 data-eid="e320" spellcheck="false">真杉靜枝不是附屬人物</h3><p data-eid="e321" spellcheck="false">真杉靜枝成長於臺灣，她的殖民地經驗與女性書寫，能對照地平作為「憧憬者／取材者」的外來視角。兩人同行不是八卦，是研究線索。</p></div>
+    <div class="question-card"><div class="q-no" data-eid="e322" spellcheck="false">04</div><h3 data-eid="e323" spellcheck="false">與佐藤春夫的連接</h3><p data-eid="e324" spellcheck="false">佐藤春夫的臺灣小說成為地平南方憧憬的前史。若把佐藤、地平、真杉並讀，可以看見日本作家臺灣書寫內部的世代差異與觀看差異。</p></div>
+    <div class="question-card"><div class="q-no" data-eid="e325" spellcheck="false">05</div><h3 data-eid="e326" spellcheck="false">「北太宰、南地平」如何成立？</h3><p data-eid="e327" spellcheck="false">這不只是綽號，而是一種文學氣質的對位：太宰向內挖掘自我崩壞，地平向外投射南方憧憬。兩人同門又交惡，使這組對位更值得細讀。</p></div>
+    <div class="question-card"><div class="q-no" data-eid="e328" spellcheck="false">06</div><h3 data-eid="e329" spellcheck="false">空白也是資料</h3><p data-eid="e330" spellcheck="false">若地平與龍瑛宗、呂赫若、張文環等本島作家缺乏直接往來，這個空白本身就說明「南方文學」可能繞過了都市殖民地知識分子的存在。</p></div>
+  </div>
+</section>
+
+<section class="section" id="tab-sources">
+  <div class="section-title" data-eid="e331" spellcheck="false">資料來源與校核狀態</div>
+  <div class="intro-card" data-eid="e332" spellcheck="false"><strong>重要說明：</strong>本頁先依既有研究紀錄列出資料來源類型。下一階段應將年表、作品、人物關係逐條補上精確書誌與頁碼；在完成前，網站應以「研究整理稿」而非「定稿資料庫」對外呈現。</div>
+  <table class="source-table"><thead><tr><th data-eid="e333" spellcheck="false">資料類型</th><th data-eid="e334" spellcheck="false">目前來源</th><th data-eid="e335" spellcheck="false">後續校核需求</th></tr></thead><tbody>
+    <tr><td data-eid="e336" spellcheck="false">基本生平</td><td data-eid="e337" spellcheck="false">日文 Wikipedia、Weblio、求真百科、宮崎縣相關報導</td><td data-eid="e338" spellcheck="false">需回查權威年譜、地方報導原文、圖書館／銀行相關紀錄。</td></tr>
+    <tr><td data-eid="e339" spellcheck="false">芥川賞候補</td><td data-eid="e340" spellcheck="false">芥川賞候補作家資料庫</td><td data-eid="e341" spellcheck="false">需補每次候補屆次、作品初出、評選委員評語。</td></tr>
+    <tr><td data-eid="e342" spellcheck="false">臺灣系列作品</td><td data-eid="e343" spellcheck="false">《台灣小說集》、相關復刻本與既有研究紀錄</td><td data-eid="e344" spellcheck="false">需確認初出、版本差異、各篇與 1939 年取材旅行的關係。</td></tr>
+    <tr><td data-eid="e345" spellcheck="false">真杉靜枝關係</td><td data-eid="e346" spellcheck="false">吳佩珍《真杉靜枝與殖民地台灣》與相關研究</td><td data-eid="e347" spellcheck="false">需補具體頁碼，並避免把真杉簡化為地平戀人。</td></tr>
+    <tr><td data-eid="e348" spellcheck="false">人物網絡</td><td data-eid="e349" spellcheck="false">既有研究整理、文壇回憶、公開資料</td><td data-eid="e350" spellcheck="false">需區分「直接往來」「同一圈層」「間接影響」「研究對照」四種關係。</td></tr>
+    <tr><td data-eid="e351" spellcheck="false">《足跡》友人圈</td><td data-eid="e352" spellcheck="false">宮崎縣立圖書館〈中村地平と台湾〉、臺灣近代美術檔案庫鹽月赳／蔭山泰敏資料、《翔風》復刻資訊</td><td data-eid="e353" spellcheck="false">已加入台北高校獨立節點與《足跡》同人圈；土方正已／正巳、今澤正雄等細節仍需以三期原刊或復刻件校核。</td></tr>
+    <tr><td data-eid="e354" spellcheck="false">地圖資訊</td><td data-eid="e355" spellcheck="false">既有 HTML 移動軌跡圖與研究紀錄</td><td data-eid="e356" spellcheck="false">目前為示意圖；若要做正式 GIS，需補地點座標與取材路線來源。</td></tr>
+  </tbody></table>
+  <div class="warning" data-eid="e357" spellcheck="false"><strong>待校核提醒：</strong>「北の太宰、南の地平」、1939 年取材細節、各作品初出與出版社、圖書館館歌、戰時報道班成員等資訊，建議在公開前逐條補註。網站可以先漂亮，但資料不能只靠氣氛撐場。</div>
+</section>
+
+
+
+
+<footer>南方的憧憬：中村地平文學地圖 v8 · 日文原文對照版</footer>
+<script>
+function switchTab(id, btn){document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));btn.classList.add('active');document.getElementById('tab-'+id).classList.add('active');window.scrollTo({top:document.querySelector('.nav-sticky').offsetTop-1,behavior:'smooth'});setTimeout(observeItems,80)}
+function observeItems(){document.querySelectorAll('.tl-item:not(.visible)').forEach((item,i)=>{const r=item.getBoundingClientRect();if(r.top<window.innerHeight-40)setTimeout(()=>item.classList.add('visible'),i*40)})}
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:.1});document.querySelectorAll('.tl-item').forEach(item=>observer.observe(item));
+function filterWorks(type,btn){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.work-row').forEach(row=>{const types=(row.dataset.type||'').split(' ');row.style.display=(type==='all'||types.includes(type))?'grid':'none'});}
+</script>
+
+<script>
+const STORE_KEY='nakamura_chihei_v9_edits';
+const EDIT_SELECTORS=[
+  '.hero-name','.hero-sub','.hero-quote','.pill','.section-title','.intro-card',
+  '.tl-era','.tl-year','.tl-text','.tl-sub',
+  '.works-era-title','.work-title','.work-desc','.work-year-badge',
+  '.network-title','.people-section-title','.person-name','.person-role','.person-relation','.relation-type',
+  '.question-card h3','.question-card p','.q-no','.source-table td','.source-table th','.warning',
+  '.analysis-card h3','.analysis-card p','.analysis-card li','.analysis-table th','.analysis-table td',
+  '.term','.term-note','.discussion-item'
+].join(',');
+function assignEditIds(){document.querySelectorAll(EDIT_SELECTORS).forEach((el,i)=>{if(!el.dataset.eid)el.dataset.eid='e'+i;});}
+function loadSaved(){try{assignEditIds();const saved=localStorage.getItem(STORE_KEY);if(!saved)return;const data=JSON.parse(saved);Object.entries(data).forEach(([id,html])=>{const el=document.querySelector('[data-eid="'+id+'"]');if(el)el.innerHTML=html;});}catch(e){console.warn(e);}}
+function saveAll(){assignEditIds();const data={};document.querySelectorAll('[data-eid]').forEach(el=>{data[el.dataset.eid]=el.innerHTML;});localStorage.setItem(STORE_KEY,JSON.stringify(data));const t=document.getElementById('saveToast');if(t){t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}}
+let editMode=false;
+function toggleEdit(){assignEditIds();editMode=!editMode;document.body.classList.toggle('edit-mode',editMode);const btn=document.getElementById('editBtn');const subs=document.getElementById('subBtns');if(editMode){if(btn){btn.textContent='💾 儲存';btn.classList.add('active');}if(subs) subs.classList.add('show');document.querySelectorAll(EDIT_SELECTORS).forEach(el=>{el.contentEditable='true';el.spellcheck=false;});}else{saveAll();if(btn){btn.textContent='✎ 編輯';btn.classList.remove('active');}if(subs) subs.classList.remove('show');document.querySelectorAll('[contenteditable]').forEach(el=>el.contentEditable='false');}}
+function resetContent(){if(!confirm('確定要還原本機儲存的所有修改嗎？'))return;localStorage.removeItem(STORE_KEY);location.reload();}
+function exportHTML(){saveAll();document.querySelectorAll('[contenteditable]').forEach(el=>el.contentEditable='false');document.body.classList.remove('edit-mode');const clone=document.documentElement.cloneNode(true);clone.querySelector('.edit-fab')?.remove();clone.querySelector('.save-toast')?.remove();clone.querySelector('.edit-mode-banner')?.remove();clone.querySelectorAll('[contenteditable]').forEach(el=>el.removeAttribute('contenteditable'));const blob=new Blob(['<!DOCTYPE html>\n'+clone.outerHTML],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='nakamura_chihei_v9_edited.html';a.click();URL.revokeObjectURL(a.href);}
+loadSaved();
+</script>
+
+
+
+</body></html>
