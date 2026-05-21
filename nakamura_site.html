@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-TW"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>南方的憧憬：中村地平文學地圖 v9</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&family=Shippori+Mincho:wght@400;500;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1208;--paper:#f5f0e8;--paper-warm:#ede6d4;--paper-soft:#faf7ef;
+  --sepia:#8b6914;--sepia-lt:#c9a84c;--sepia-dk:#5a3e00;
+  --green:#1a4a32;--green-lt:#e8f2ec;--violet:#2e1a5e;--violet-lt:#ede8f7;
+  --red:#7a1e1e;--red-lt:#f5e8e8;--amber:#7a4a0a;--amber-lt:#f5edd8;
+  --blue:#17466c;--blue-lt:#e5eff7;--muted:#7a6a50;
+  --border:rgba(90,62,0,.15);--border-mid:rgba(90,62,0,.28);
+  --shadow:0 10px 30px rgba(26,18,8,.08);
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Noto Serif TC','Shippori Mincho',serif;line-height:1.8;overflow-x:hidden}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(139,105,20,.13) 0%,transparent 70%),var(--paper);padding:4rem 2rem;overflow:hidden;text-align:center}
+.hero::before{content:'南方';position:absolute;font-size:clamp(8rem,30vw,22rem);font-weight:900;color:rgba(139,105,20,.055);letter-spacing:-.05em;pointer-events:none;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap}
+.kicker{font-family:'EB Garamond',serif;font-size:.95rem;letter-spacing:.25em;color:var(--muted);margin-bottom:1.2rem;opacity:0;animation:fadeUp .8s .1s forwards}
+h1.hero-name{font-size:clamp(2.6rem,8vw,6rem);font-weight:900;letter-spacing:.12em;line-height:1.1;opacity:0;animation:fadeUp .9s .25s forwards}
+.hero-sub{font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.45rem);color:var(--sepia);margin-top:1.1rem;letter-spacing:.05em;opacity:0;animation:fadeUp .9s .45s forwards}
+.hero-quote{margin-top:2.6rem;max-width:680px;font-size:.96rem;color:var(--muted);line-height:2;border-top:1px solid var(--border-mid);border-bottom:1px solid var(--border-mid);padding:1.2rem 2rem;opacity:0;animation:fadeUp 1s .7s forwards;background:rgba(245,240,232,.5)}
+.hero-quote em{font-style:normal;color:var(--sepia-dk);font-weight:600}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:2rem;opacity:0;animation:fadeUp 1s .95s forwards}
+.pill{border:1px solid var(--border-mid);border-radius:999px;padding:.55rem 1.05rem;background:rgba(237,230,212,.65);font-size:.78rem;letter-spacing:.08em;color:var(--muted)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* NAV */
+.nav-sticky{position:sticky;top:0;z-index:100;background:rgba(245,240,232,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border-mid);display:flex;justify-content:center;gap:0;padding:0 .5rem;overflow-x:auto}
+.nav-tab{padding:1rem 1.35rem;font-size:.84rem;letter-spacing:.1em;color:var(--muted);cursor:pointer;border:0;background:none;font-family:inherit;position:relative;white-space:nowrap;transition:color .2s}
+.nav-tab:hover,.nav-tab.active{color:var(--ink);font-weight:600}
+.nav-tab::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:2px;background:var(--sepia);transition:left .25s,right .25s}
+.nav-tab.active::after{left:16px;right:16px}
+
+/* SECTIONS */
+.section{display:none;max-width:980px;margin:0 auto;padding:4rem 2rem 6rem}
+.section.active{display:block}
+.section-title{font-size:.75rem;letter-spacing:.3em;color:var(--sepia);text-transform:uppercase;margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border-mid)}
+.intro-card{padding:1.3rem 1.6rem;background:var(--paper-warm);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:.92rem;line-height:1.95;margin-bottom:2.2rem}
+.intro-card strong{color:var(--ink)}
+
+/* TIMELINE (interactive) */
+.tl-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem}
+.tl-ftab{font-size:12px;padding:4px 12px;border-radius:20px;border:1px solid var(--border-mid);background:var(--paper-soft);color:var(--muted);cursor:pointer;font-family:inherit;transition:all .15s}
+.tl-ftab:hover{background:var(--paper-warm)}
+.tl-ftab.on{border-color:transparent;color:#fff}
+.tl-ftab[data-f="all"].on{background:#888780}
+.tl-ftab[data-f="life"].on{background:#534AB7}
+.tl-ftab[data-f="work"].on{background:#1D9E75}
+.tl-ftab[data-f="rel"].on{background:#D85A30}
+.tl-ftab[data-f="award"].on{background:#BA7517}
+.tl-ftab[data-f="war"].on{background:#993C1D}
+.tl-grid{display:grid;grid-template-columns:90px 1px 1fr;gap:0}
+.tl-axis-line{background:var(--border-mid)}
+.yr-stamp{display:flex;flex-direction:column;align-items:flex-end;padding-right:12px;padding-top:11px;gap:1px;min-height:36px}
+.yr-ad{font-family:'EB Garamond',serif;font-size:13px;font-weight:600;color:var(--ink)}
+.yr-jp{font-size:10px;color:var(--muted);white-space:nowrap}
+.axis-cell{position:relative}
+.axis-cell-line{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border);transform:translateX(-50%);z-index:0}
+.axis-dot{width:9px;height:9px;border-radius:50%;position:absolute;left:50%;transform:translateX(-50%);top:14px;z-index:1}
+.ev-col{padding-left:16px;padding-bottom:4px}
+.ev-card{padding:9px 13px;border-radius:8px;border:1px solid transparent;cursor:pointer;transition:all .15s;margin-bottom:3px;font-family:'Noto Serif TC',serif}
+.ev-card:hover{background:var(--paper-warm);border-color:var(--border)}
+.ev-card.open{background:var(--paper-soft);border-color:var(--border-mid)}
+.ev-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ev-tag{font-size:10px;padding:2px 8px;border-radius:10px;flex-shrink:0;font-weight:500}
+.ev-title{font-size:13px;font-weight:500;color:var(--ink)}
+.ev-loc{font-size:11px;color:var(--muted);margin-top:3px}
+.ev-detail{font-size:12px;color:var(--muted);line-height:1.7;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);display:none}
+.ev-card.open .ev-detail{display:block}
+.ev-works{margin-top:6px;display:flex;flex-wrap:wrap;gap:4px}
+.ev-chip{font-size:11px;padding:2px 8px;background:var(--paper-warm);border:1px solid var(--border);border-radius:10px;color:var(--muted)}
+.ev-card.hidden{display:none}
+
+/* MAP */
+.map-section-wrap{display:grid;grid-template-columns:1fr minmax(220px,.55fr);gap:1.5rem;align-items:start}
+.map-svg-box{border:1px solid var(--border-mid);border-radius:10px;background:var(--paper-soft);overflow:hidden}
+.map-tl{display:flex;flex-direction:column;gap:0}
+.map-tl-item{display:flex;gap:0;cursor:pointer}
+.map-tl-item:hover .map-card{background:var(--paper-warm)}
+.map-tl-left{display:flex;flex-direction:column;align-items:center;width:44px;flex-shrink:0}
+.map-yr{font-size:10px;font-weight:500;color:var(--muted);padding-top:12px;text-align:center;width:44px;line-height:1.3}
+.map-line-t,.map-line-b{width:1px;background:var(--border);flex:1;min-height:6px}
+.map-tl-item:first-child .map-line-t{visibility:hidden}
+.map-tl-item:last-child .map-line-b{visibility:hidden}
+.map-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin:2px 0}
+.map-card{flex:1;padding:8px 12px;margin:3px 0;border-radius:8px;transition:background .15s;border:1px solid transparent}
+.map-tl-item.active .map-card{border-color:var(--border-mid);background:var(--paper-soft)}
+.map-place{font-weight:500;font-size:13px;color:var(--ink)}
+.map-desc{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.5}
+.map-tags{margin-top:4px}
+.map-tag{display:inline-block;font-size:10px;padding:1px 7px;border-radius:10px;margin-right:3px}
+
+/* PEOPLE NETWORK */
+.net-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem}
+.net-ftab{font-size:12px;padding:4px 12px;border-radius:20px;border:1px solid var(--border-mid);background:var(--paper-soft);color:var(--muted);cursor:pointer;font-family:inherit;transition:all .15s}
+.net-ftab:hover{background:var(--paper-warm)}
+.net-ftab.on{border-color:transparent;color:#fff}
+.net-ftab[data-g="all"].on{background:#888780}
+.net-ftab[data-g="teacher"].on{background:#534AB7}
+.net-ftab[data-g="tpe"].on{background:#1D9E75}
+.net-ftab[data-g="peer"].on{background:#185FA5}
+.net-ftab[data-g="taiwan"].on{background:#D85A30}
+.net-ftab[data-g="war"].on{background:#993C1D}
+.net-ftab[data-g="local"].on{background:#7a4a0a}
+.net-ftab[data-g="gap"].on{background:#5F5E5A}
+#net-canvas{display:block;border:1px solid var(--border-mid);border-radius:10px;background:var(--paper-soft);cursor:grab;touch-action:none;width:100%;max-width:700px}
+#net-canvas:active{cursor:grabbing}
+.net-info{margin-top:10px;padding:12px 16px;border:1px solid var(--border-mid);border-radius:8px;background:var(--paper-soft);min-height:60px}
+.net-info-name{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.net-info-role{font-size:11px;color:var(--muted);margin-bottom:5px}
+.net-info-rel{font-size:12px;color:var(--muted);line-height:1.7}
+.net-info-tag{display:inline-block;font-size:10px;padding:1px 8px;border-radius:10px;margin-bottom:5px;font-weight:500}
+.net-empty{font-size:12px;color:var(--muted)}
+.net-hint{font-size:11px;color:var(--muted);margin-top:6px;text-align:center}
+
+/* WORKS */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.4rem}
+.filter-btn{font-family:inherit;border:1px solid var(--border-mid);background:var(--paper-soft);border-radius:999px;padding:.45rem .85rem;font-size:.78rem;color:var(--muted);cursor:pointer}
+.filter-btn.active,.filter-btn:hover{background:var(--sepia-dk);color:var(--paper)}
+.works-era{margin-bottom:2.6rem}
+.works-era-title{font-size:.72rem;letter-spacing:.25em;color:var(--sepia);text-transform:uppercase;margin-bottom:1.1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.works-grid{display:flex;flex-direction:column;gap:1px;border:1px solid var(--border-mid);border-radius:8px;overflow:hidden}
+.work-row{display:grid;grid-template-columns:1fr auto;gap:1rem;padding:1rem 1.35rem;background:var(--paper-soft);border-bottom:1px solid var(--border);transition:background .15s}
+.work-row:last-child{border-bottom:0}
+.work-row:hover{background:var(--paper-warm)}
+.work-title{font-size:.96rem;font-weight:700;margin-bottom:4px}
+.work-desc{font-size:.82rem;color:var(--muted);line-height:1.65}
+.work-meta{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.work-year-badge{font-family:'EB Garamond',serif;font-size:.95rem;color:var(--sepia);white-space:nowrap}
+.tag{display:inline-block;font-size:.66rem;padding:1px 7px;border-radius:10px;margin-right:4px;margin-bottom:2px;letter-spacing:.05em;vertical-align:middle}
+.tag.jp{background:var(--violet-lt);color:var(--violet)}
+.tag.tw{background:var(--green-lt);color:var(--green)}
+.tag.work{background:var(--amber-lt);color:var(--amber)}
+.tag.war{background:var(--red-lt);color:var(--red)}
+
+/* QUESTIONS */
+.question-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.question-card{background:var(--paper-soft);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
+.question-card h3{font-size:1rem;margin-bottom:.45rem}
+.question-card p{font-size:.86rem;color:var(--muted);line-height:1.8}
+.q-no{font-family:'EB Garamond',serif;color:var(--sepia);font-size:1.4rem;line-height:1;margin-bottom:.4rem}
+
+/* SOURCES */
+.source-table{width:100%;border-collapse:collapse;background:var(--paper-soft);border:1px solid var(--border-mid);border-radius:8px;overflow:hidden;font-size:.84rem}
+.source-table th,.source-table td{border-bottom:1px solid var(--border);padding:.8rem .9rem;text-align:left;vertical-align:top}
+.source-table th{background:var(--paper-warm);font-weight:700;color:var(--sepia-dk)}
+.source-table tr:last-child td{border-bottom:0}
+.source-table td:nth-child(1){width:28%;font-weight:600;color:var(--ink)}
+.warning{margin-top:1.2rem;padding:1rem 1.2rem;border:1px solid rgba(122,30,30,.18);background:var(--red-lt);border-radius:8px;color:#6c2b2b;font-size:.86rem;line-height:1.8}
+
+/* ANALYSIS */
+.analysis-card{padding:1.15rem 1.3rem;background:var(--paper-soft);border:1px solid var(--border);border-radius:10px;margin-bottom:1.2rem}
+.analysis-card h3{font-size:1rem;margin-bottom:.45rem;color:var(--ink)}
+.analysis-table{width:100%;border-collapse:collapse;margin:1.2rem 0 2rem;border:1px solid var(--border-mid);background:var(--paper-soft);border-radius:8px;overflow:hidden}
+.analysis-table th,.analysis-table td{border-bottom:1px solid var(--border);padding:.85rem 1rem;text-align:left;vertical-align:top;font-size:.86rem}
+.analysis-table th{width:170px;color:var(--sepia-dk);background:var(--paper-warm);font-weight:700}
+.analysis-table tr:last-child th,.analysis-table tr:last-child td{border-bottom:0}
+.translation-table{table-layout:fixed;width:100%}
+.translation-table th{width:33.333%!important;text-align:center}
+.translation-table td{width:33.333%;vertical-align:top;white-space:pre-wrap;line-height:1.9}
+.translation-table .jp-text{font-family:'Shippori Mincho','Noto Serif TC',serif;color:var(--ink)}
+.translation-table .source-title{font-size:1.05rem;font-weight:800;text-align:center;letter-spacing:.08em;font-family:'Shippori Mincho','Noto Serif TC',serif;color:var(--ink)}
+
+footer{text-align:center;padding:3rem 2rem;font-size:.75rem;color:var(--muted);border-top:1px solid var(--border);letter-spacing:.1em;background:var(--paper-warm)}
+
+@media(max-width:760px){
+  .section{padding:3rem 1.2rem 5rem}
+  .map-section-wrap{grid-template-columns:1fr}
+  .tl-grid{grid-template-columns:80px 1px 1fr}
+  .yr-ad{font-size:12px}.yr-jp{font-size:9px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="kicker">1908 — 1963</div>
+  <h1 class="hero-name">中村地平</h1>
+  <div class="hero-sub">南方的憧憬・臺灣書寫・文學地圖</div>
+  <blockquote class="hero-quote">「對於南方的<em>鄉愁</em>、南方的<em>憧憬</em>、南方的<em>愛戀</em>，<br>是我一生永不改變的事。」<br><small style="font-size:.8rem;letter-spacing:.1em">——《台灣小說集》後記</small></blockquote>
+  <div class="hero-actions">
+    <span class="pill">南方文學</span><span class="pill">臺灣取材</span><span class="pill">井伏門下</span>
+    <span class="pill">人物網絡</span><span class="pill">台北高校圈</span><span class="pill">殖民地凝視</span>
+  </div>
+</section>
+
+<nav class="nav-sticky">
+  <button class="nav-tab active" onclick="switchTab('life',this)">年表</button>
+  <button class="nav-tab" onclick="switchTab('map',this)">地圖</button>
+  <button class="nav-tab" onclick="switchTab('people',this)">人物網絡</button>
+  <button class="nav-tab" onclick="switchTab('works',this)">作品</button>
+  <button class="nav-tab" onclick="switchTab('analysis',this)">作品分析</button>
+  <button class="nav-tab" onclick="switchTab('questions',this)">研究視角</button>
+  <button class="nav-tab" onclick="switchTab('sources',this)">資料來源</button>
+</nav>
+
+<!-- ======= 年表 ======= -->
+<section class="section active" id="tab-life">
+  <div class="section-title">生平大事年表</div>
+  <div class="intro-card"><strong>閱讀提示：</strong>本年表以西元＋日本紀年雙標示，並可依「生平、創作、人際、芥川賞、戰爭」篩選。點擊事件展開詳情。</div>
+  <div class="tl-filters">
+    <button class="tl-ftab on" data-f="all">全部</button>
+    <button class="tl-ftab" data-f="life">生平</button>
+    <button class="tl-ftab" data-f="work">創作</button>
+    <button class="tl-ftab" data-f="rel">人際</button>
+    <button class="tl-ftab" data-f="award">芥川賞</button>
+    <button class="tl-ftab" data-f="war">戰爭</button>
+  </div>
+  <div class="tl-grid" id="tl-container"></div>
+</section>
+
+<!-- ======= 地圖 ======= -->
+<section class="section" id="tab-map">
+  <div class="section-title">文學地圖・移動軌跡</div>
+  <div class="intro-card"><strong>閱讀提示：</strong>中村地平的「南方」不是單一地點，而是一條移動路線。右側時間軸可點擊互動，對應各地段的文學意義。</div>
+  <div class="map-section-wrap">
+    <div class="map-svg-box">
+      <svg width="100%" viewBox="0 0 680 340" role="img" aria-label="中村地平移動路線示意圖">
+        <text x="520" y="30" font-size="11" fill="#7a6a50" opacity=".55" font-family="Noto Serif TC,serif">日本</text>
+        <text x="280" y="295" font-size="11" fill="#7a6a50" opacity=".55" font-family="Noto Serif TC,serif">臺灣</text>
+        <text x="55" y="290" font-size="11" fill="#7a6a50" opacity=".55" font-family="Noto Serif TC,serif">馬來半島</text>
+        <path d="M490,110 Q420,170 350,210" fill="none" stroke="#1D9E75" stroke-width="1.2" stroke-dasharray="4 3" opacity=".65"/>
+        <path d="M350,210 Q430,160 510,80" fill="none" stroke="#378ADD" stroke-width="1.2" stroke-dasharray="4 3" opacity=".65"/>
+        <path d="M510,80 Q430,150 330,240" fill="none" stroke="#D85A30" stroke-width="1.5" stroke-dasharray="5 3" opacity=".75"/>
+        <path d="M510,80 Q340,120 120,240" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-dasharray="4 3" opacity=".65"/>
+        <path d="M120,240 Q300,200 490,110" fill="none" stroke="#7F77DD" stroke-width="1" stroke-dasharray="3 3" opacity=".4"/>
+        <circle cx="490" cy="110" r="9" fill="#7F77DD"/><circle cx="490" cy="110" r="15" fill="#7F77DD" opacity=".12"/>
+        <text x="510" y="105" font-size="12" font-weight="700" fill="#1a1208" font-family="Noto Serif TC,serif">宮崎</text>
+        <text x="510" y="119" font-size="10" fill="#7a6a50" font-family="Noto Serif TC,serif">1908 出生</text>
+        <circle cx="510" cy="78" r="9" fill="#378ADD"/><circle cx="510" cy="78" r="15" fill="#378ADD" opacity=".12"/>
+        <text x="528" y="73" font-size="12" font-weight="700" fill="#1a1208" font-family="Noto Serif TC,serif">東京</text>
+        <text x="528" y="87" font-size="10" fill="#7a6a50" font-family="Noto Serif TC,serif">1930 東大・文壇</text>
+        <circle cx="350" cy="210" r="9" fill="#1D9E75"/><circle cx="350" cy="210" r="15" fill="#1D9E75" opacity=".12"/>
+        <text x="368" y="205" font-size="12" font-weight="700" fill="#1a1208" font-family="Noto Serif TC,serif">台北</text>
+        <text x="368" y="219" font-size="10" fill="#7a6a50" font-family="Noto Serif TC,serif">1926 台北高校</text>
+        <circle cx="330" cy="240" r="6" fill="#D85A30"/><circle cx="330" cy="240" r="12" fill="#D85A30" opacity=".12"/>
+        <text x="210" y="238" font-size="12" font-weight="700" fill="#1a1208" font-family="Noto Serif TC,serif">臺灣原住民部落</text>
+        <text x="210" y="252" font-size="10" fill="#7a6a50" font-family="Noto Serif TC,serif">1939 取材・《蕃界之女》</text>
+        <circle cx="120" cy="240" r="8" fill="#BA7517"/><circle cx="120" cy="240" r="14" fill="#BA7517" opacity=".12"/>
+        <text x="58" y="225" font-size="12" font-weight="700" fill="#1a1208" font-family="Noto Serif TC,serif">馬來半島</text>
+        <text x="58" y="238" font-size="10" fill="#7a6a50" font-family="Noto Serif TC,serif">1943 報道班員</text>
+        <text x="398" y="162" font-size="10" fill="#1D9E75" font-family="Noto Serif TC,serif">1926 →</text>
+        <text x="445" y="130" font-size="10" fill="#378ADD" font-family="Noto Serif TC,serif">1930 →</text>
+        <text x="245" y="148" font-size="10" fill="#BA7517" font-family="Noto Serif TC,serif">1943 →</text>
+      </svg>
+    </div>
+    <div class="map-tl" id="map-timeline"></div>
+  </div>
+</section>
+
+<!-- ======= 人物網絡 ======= -->
+<section class="section" id="tab-people">
+  <div class="section-title">人物網絡</div>
+  <div class="intro-card"><strong>互動說明：</strong>點擊節點查看人物說明；拖曳節點調整位置；滑鼠懸停高亮連線。篩選標籤可聚焦特定圈層。台北高校圈層為本版新增，含《足跡》同人誌完整成員。</div>
+  <div class="net-filters">
+    <button class="net-ftab on" data-g="all">全部</button>
+    <button class="net-ftab" data-g="teacher">師承</button>
+    <button class="net-ftab" data-g="tpe">台北高校圈</button>
+    <button class="net-ftab" data-g="peer">東京文壇</button>
+    <button class="net-ftab" data-g="taiwan">臺灣／南方</button>
+    <button class="net-ftab" data-g="war">戰時</button>
+    <button class="net-ftab" data-g="local">宮崎地方</button>
+    <button class="net-ftab" data-g="gap">空白對照</button>
+  </div>
+  <canvas id="net-canvas" width="700" height="520"></canvas>
+  <div class="net-info" id="net-info"><p class="net-empty">點擊節點查看人物說明；拖曳節點調整位置；滑鼠懸停高亮連線</p></div>
+  <p class="net-hint">節點可自由拖曳 · 篩選標籤隱藏無關節點 · 實線為強關係，虛線為弱／間接關係</p>
+</section>
+
+<!-- ======= 作品 ======= -->
+<section class="section" id="tab-works">
+  <div class="section-title">作品資料</div>
+  <div class="intro-card"><strong>說明：</strong>依年份排列，並標示臺灣、芥川賞、戰時、隨筆等屬性。可依標籤篩選。</div>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterWorks('all',this)">全部</button>
+    <button class="filter-btn" onclick="filterWorks('taiwan',this)">臺灣相關</button>
+    <button class="filter-btn" onclick="filterWorks('akutagawa',this)">芥川賞候補</button>
+    <button class="filter-btn" onclick="filterWorks('war',this)">戰時／南洋</button>
+    <button class="filter-btn" onclick="filterWorks('essay',this)">隨筆</button>
+  </div>
+  <div class="works-era"><div class="works-era-title">早期文壇出道（1932–1936）</div><div class="works-grid">
+    <div class="work-row" data-type="taiwan"><div><div class="work-title">〈熱帶柳的種子〉（熱帯柳の種子）</div><div class="work-desc">文壇出道作，發表於《作品》誌，獲佐藤春夫賞識。以臺灣植物意象為核心，奠定南方文學底色。</div></div><div class="work-meta"><span class="work-year-badge">1932</span><span class="tag tw">臺灣意象</span></div></div>
+    <div class="work-row" data-type=""><div><div class="work-title">〈失踪〉</div><div class="work-desc">以太宰治失蹤及自殺未遂事件為題材，發表於《行動》誌，引發兩人決裂。</div></div><div class="work-meta"><span class="work-year-badge">1935</span></div></div>
+    <div class="work-row" data-type="essay"><div><div class="work-title">《旅先にて》</div><div class="work-desc">版畫莊文庫，旅行散文集。</div></div><div class="work-meta"><span class="work-year-badge">1937</span><span class="tag work">隨筆</span></div></div>
+  </div></div>
+  <div class="works-era"><div class="works-era-title">芥川賞候補期（1937–1940）</div><div class="works-grid">
+    <div class="work-row" data-type="akutagawa"><div><div class="work-title">〈土龍どんもぽっくり〉</div><div class="work-desc">第一次芥川賞候補，南方鄉土氣息濃厚的短篇。</div></div><div class="work-meta"><span class="work-year-badge">1937</span><span class="tag jp">芥川賞候補</span></div></div>
+    <div class="work-row" data-type="akutagawa"><div><div class="work-title">〈南方郵信〉</div><div class="work-desc">第二次芥川賞候補，以書信體呈現對南方的憧憬與思念。</div></div><div class="work-meta"><span class="work-year-badge">1938</span><span class="tag jp">芥川賞候補</span></div></div>
+    <div class="work-row" data-type="akutagawa"><div><div class="work-title">〈在離島〉（離れ島にて）</div><div class="work-desc">第三次芥川賞候補，描寫南方離島生活。</div></div><div class="work-meta"><span class="work-year-badge">1938</span><span class="tag jp">芥川賞候補</span></div></div>
+    <div class="work-row" data-type="taiwan akutagawa"><div><div class="work-title">《蕃界之女》（蕃界の女）</div><div class="work-desc">第四次芥川賞候補。以臺灣原住民部落女性為主角，融合浪漫想像與異域凝視的代表作。</div></div><div class="work-meta"><span class="work-year-badge">1940</span><span class="tag tw">臺灣原住民</span><span class="tag jp">芥川賞候補</span></div></div>
+  </div></div>
+  <div class="works-era"><div class="works-era-title">臺灣取材系列（1939–1941）</div><div class="works-grid">
+    <div class="work-row" data-type="taiwan"><div><div class="work-title">《霧之蕃社》（霧の蕃社）</div><div class="work-desc">以霧中山地部落為場景，描繪原住民生活習俗，帶有浪漫化想像。</div></div><div class="work-meta"><span class="work-year-badge">1939–40</span><span class="tag tw">臺灣原住民</span></div></div>
+    <div class="work-row" data-type="taiwan"><div><div class="work-title">《長耳國漂流記》</div><div class="work-desc">以牡丹社事件為靈感的奇幻冒險小說。</div></div><div class="work-meta"><span class="work-year-badge">1941</span><span class="tag tw">臺灣原住民</span></div></div>
+    <div class="work-row" data-type="taiwan"><div><div class="work-title">《台灣小說集》</div><div class="work-desc">匯集臺灣取材作品。後記中留下「對南方的鄉愁……」之自我定位。</div></div><div class="work-meta"><span class="work-year-badge">1941</span><span class="tag tw">臺灣</span></div></div>
+  </div></div>
+  <div class="works-era"><div class="works-era-title">戰時與戰後（1941–1950）</div><div class="works-grid">
+    <div class="work-row" data-type="essay"><div><div class="work-title">《仕事机》</div><div class="work-desc">筑摩書房，隨筆評論集。</div></div><div class="work-meta"><span class="work-year-badge">1941</span><span class="tag work">隨筆</span></div></div>
+    <div class="work-row" data-type="war"><div><div class="work-title">《マライの人たち》（馬來的人們）</div><div class="work-desc">記錄隨陸軍報道班員赴馬來半島的見聞。</div></div><div class="work-meta"><span class="work-year-badge">1944</span><span class="tag war">戰時紀行</span></div></div>
+    <div class="work-row" data-type=""><div><div class="work-title">《日向》</div><div class="work-desc">以宮崎故鄉「日向國」為題的鄉土作品集。</div></div><div class="work-meta"><span class="work-year-badge">1944</span></div></div>
+    <div class="work-row" data-type=""><div><div class="work-title">〈孩子的形象〉</div><div class="work-desc">以女兒危篤奇蹟生還為素材，風格從浪漫主義轉向私小說，被視為戰後轉折之作。</div></div><div class="work-meta"><span class="work-year-badge">1948</span></div></div>
+    <div class="work-row" data-type="akutagawa"><div><div class="work-title">〈八年間〉</div><div class="work-desc">第五次芥川賞候補，戰後重要短篇。</div></div><div class="work-meta"><span class="work-year-badge">1950</span><span class="tag jp">芥川賞候補</span></div></div>
+  </div></div>
+</section>
+
+<!-- ======= 作品分析 ======= -->
+<section class="section" id="tab-analysis">
+  <div class="section-title">作品分析：〈熱帶柳的種子〉</div>
+  <div class="intro-card"><strong>說明：</strong>日文原文與中文翻譯對照。左欄為日文原文；中欄為 Claude 翻譯，右欄為 GPT 翻譯。</div>
+  <div class="analysis-card">
+    <h3>作品基本資料</h3>
+    <table class="analysis-table">
+      <tr><th>作品名</th><td>〈熱帶柳的種子〉／〈熱帯柳の種子〉</td></tr>
+      <tr><th>作者</th><td>中村地平</td></tr>
+      <tr><th>初出</th><td>《作品》昭和7年1月號（1932年1月）</td></tr>
+      <tr><th>出版</th><td>1938年3月由東京「版画荘」出版首部同名小說集</td></tr>
+    </table>
+  </div>
+  <table class="analysis-table translation-table">
+    <caption style="caption-side:top;text-align:left;padding:.6rem .2rem .8rem;color:var(--sepia-dk);font-weight:700;letter-spacing:.06em">〈熱帯柳の種子〉翻譯對照表</caption>
+    <thead><tr>
+      <th>原文</th><th>Claude 翻譯</th><th>GPT 翻譯</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="source-title">熱帶柳の種子</td><td></td><td></td></tr>
+      <tr>
+        <td class="jp-text">　私は台湾の高等学校へはいっていた。雨のよくふるところで、亜熱帯樹の匂いは、部屋にいるときでも容易に手でつかむことができた。眼にはみえない黄色い花粉が空気を泳いでいるからであろう。晴れると空は鋭くて、熱帯柳の種子がぼんぼん天をとんだ。道を歩いていると、ふとその指頭大の綿毛が体にあたることがあった。純白で十分に柔かい綿毛である。私はそれをいつも無心に掌にもむ癖があった。植民地にすむ私達の心は、ともすれば虚無的になるのであろう。</td>
+        <td>我就讀台灣的高等學校。那是個雨水豐沛的地方，亞熱帶樹木的氣息，即便待在室內也唾手可得。想必是因為肉眼看不見的黃色花粉在空氣中游弋的緣故。天晴時，天空銳利刺眼，熱帶柳的種子不停地迸向天際。走在路上，偶爾會有那指頭大小的棉絮飄落觸碰身體。純白而柔軟的棉絮。我總是無心地習慣性把它放在掌心揉捏。住在殖民地的我們，心靈動輒流於虛無，想必也是難免的吧。</td>
+        <td>我進入臺灣的高等學校就讀。那是一個常常下雨的地方，亞熱帶樹木的氣味，即使人在房間裡，也彷彿能輕易用手抓住。大概是因為空氣中，漂浮著肉眼看不見的黃色花粉吧。天氣放晴時，天空便顯得銳利，熱帶柳的種子一團團飛向天際。走在路上，有時那指尖大小的絨毛，會忽然碰到身上。那是純白而極其柔軟的絨毛。我總有一個習慣，會無心地把它放在掌中揉搓。住在殖民地的我們，內心或許很容易就變得虛無吧。</td>
+      </tr>
+      <tr>
+        <td class="jp-text">　池のある家に、私はすんでいた。</td>
+        <td>我住在一棟有池塘的房子裡。</td>
+        <td>我住在一間有池塘的屋子裡。</td>
+      </tr>
+      <tr>
+        <td class="jp-text">　池は裏の堤に沿った小川から水をひいていたが、表にも一つの流れがあって、ほこりっぽい往還のガジュマル並木の影をうつしている。私は池をすぐ前にみる八畳の部屋にすんで、なにか胴体のみで生きているような気もちになって、呼吸を皮膚でしていた。</td>
+        <td>池塘的水引自後方堤岸旁的小溪，而門前也有一道水流，映照著塵土飛揚的大路旁，榕樹並木投下的倒影。我住在正對著池塘的八疊房間裡，心裡有種彷彿只剩軀幹活著的感覺，用皮膚呼吸著。</td>
+        <td>池塘的水，是從後方沿著堤岸流過的小河引來的；屋前也有一道水流，映著塵土飛揚的往來道路，以及道路兩旁榕樹行道樹的影子。我住在一間八疊大的房間裡，池塘就在眼前。待在那裡時，我總覺得自己彷彿只剩下一具軀幹活著，正用皮膚呼吸。</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ======= 研究視角 ======= -->
+<section class="section" id="tab-questions">
+  <div class="section-title">研究視角</div>
+  <div class="intro-card"><strong>網站定位：</strong>這不是作家紀念館，而是一個可持續擴張的研究入口。喜歡一位作家，仍要審問他的觀看位置；否則南方一吹，研究就會變成熱帶濾鏡。</div>
+  <div class="question-grid">
+    <div class="question-card"><div class="q-no">01</div><h3>南方文學如何被製造？</h3><p>中村地平的「南方」包含宮崎、臺灣、南洋，也包含文學閱讀、旅行取材與戰時動員。它不是自然存在的地理，而是被文本、制度與移動共同生產的想像。</p></div>
+    <div class="question-card"><div class="q-no">02</div><h3>臺灣是現實還是異域？</h3><p>臺北高校經驗讓地平接觸殖民地臺灣，但臺灣系列作品又常把山地部落浪漫化。現實經驗如何轉換成異域敘事，是最重要的批判核心。</p></div>
+    <div class="question-card"><div class="q-no">03</div><h3>真杉靜枝不是附屬人物</h3><p>真杉靜枝成長於臺灣，她的殖民地經驗與女性書寫，能對照地平作為「憧憬者／取材者」的外來視角。兩人同行不是八卦，是研究線索。</p></div>
+    <div class="question-card"><div class="q-no">04</div><h3>與佐藤春夫的連接</h3><p>佐藤春夫的臺灣小說成為地平南方憧憬的前史。若把佐藤、地平、真杉並讀，可以看見日本作家臺灣書寫內部的世代差異與觀看差異。</p></div>
+    <div class="question-card"><div class="q-no">05</div><h3>「北太宰、南地平」如何成立？</h3><p>這不只是綽號，而是一種文學氣質的對位：太宰向內挖掘自我崩壞，地平向外投射南方憧憬。兩人同門又交惡，使這組對位更值得細讀。</p></div>
+    <div class="question-card"><div class="q-no">06</div><h3>空白也是資料</h3><p>若地平與龍瑛宗、呂赫若、張文環等本島作家缺乏直接往來，這個空白本身就說明「南方文學」可能繞過了都市殖民地知識分子的存在。</p></div>
+  </div>
+</section>
+
+<!-- ======= 資料來源 ======= -->
+<section class="section" id="tab-sources">
+  <div class="section-title">資料來源與校核狀態</div>
+  <div class="intro-card"><strong>重要說明：</strong>本頁列出資料來源類型。下一階段應將年表、作品、人物關係逐條補上精確書誌與頁碼；在完成前，網站應以「研究整理稿」而非「定稿資料庫」對外呈現。</div>
+  <table class="source-table"><thead><tr><th>資料類型</th><th>目前來源</th><th>後續校核需求</th></tr></thead><tbody>
+    <tr><td>基本生平</td><td>日文 Wikipedia、Weblio、求真百科、宮崎縣相關報導</td><td>需回查權威年譜、地方報導原文、圖書館／銀行相關紀錄。</td></tr>
+    <tr><td>芥川賞候補</td><td>芥川賞候補作家資料庫</td><td>需補每次候補屆次、作品初出、評選委員評語。</td></tr>
+    <tr><td>臺灣系列作品</td><td>《台灣小說集》、相關復刻本與既有研究紀錄</td><td>需確認初出、版本差異、各篇與1939年取材旅行的關係。</td></tr>
+    <tr><td>真杉靜枝關係</td><td>吳佩珍《真杉靜枝與殖民地台灣》與相關研究</td><td>需補具體頁碼，並避免把真杉簡化為地平戀人。</td></tr>
+    <tr><td>人物網絡</td><td>既有研究整理、文壇回憶、公開資料</td><td>需區分「直接往來」「同一圈層」「間接影響」「研究對照」四種關係。</td></tr>
+    <tr><td>《足跡》友人圈</td><td>宮崎縣立圖書館〈中村地平と台湾〉、臺灣近代美術檔案庫鹽月赳／蔭山泰敏資料</td><td>土方正巳、今澤正雄等細節仍需以三期原刊或復刻件校核。</td></tr>
+  </tbody></table>
+  <div class="warning"><strong>待校核提醒：</strong>「北の太宰、南の地平」、1939年取材細節、各作品初出與出版社、圖書館館歌、戰時報道班成員等資訊，建議在公開前逐條補註。網站可以先漂亮，但資料不能只靠氣氛撐場。</div>
+</section>
+
+<footer>南方的憧憬：中村地平文學地圖 v9 · 臺灣文學研究生視角</footer>
+
+<script>
+/* ===== NAV ===== */
+function switchTab(id,btn){
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+  window.scrollTo({top:document.querySelector('.nav-sticky').offsetTop-1,behavior:'smooth'});
+  if(id==='people')setTimeout(()=>drawNet(),80);
+}
+
+/* ===== WORKS FILTER ===== */
+function filterWorks(type,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.work-row').forEach(row=>{
+    const types=(row.dataset.type||'').split(' ');
+    row.style.display=(type==='all'||types.includes(type))?'grid':'none';
+  });
+}
+
+/* ===== JAPANESE ERA ===== */
+function jpEra(y){
+  if(y>=1989)return '平成'+(y-1988);
+  if(y>=1926)return '昭和'+(y-1925);
+  if(y>=1912)return '大正'+(y-1911);
+  if(y>=1868)return '明治'+(y-1867);
+  return '';
+}
+
+/* ===== TIMELINE DATA ===== */
+const CAT={
+  life: {label:'生平',bg:'#EEEDFE',fg:'#3C3489',dot:'#534AB7'},
+  work: {label:'創作',bg:'#E1F5EE',fg:'#0F6E56',dot:'#1D9E75'},
+  rel:  {label:'人際',bg:'#FAECE7',fg:'#993C1D',dot:'#D85A30'},
+  award:{label:'芥川賞',bg:'#FAEEDA',fg:'#633806',dot:'#BA7517'},
+  war:  {label:'戰爭',bg:'#FAECE7',fg:'#712B13',dot:'#993C1D'},
+};
+const TL_DATA=[
+  {y:1908,cat:'life',title:'生於宮崎市淀川町',loc:'宮崎',detail:'本名中村治兵衛，父為實業家中村常三郎（宮崎太陽銀行創辦人）。從小在九州南端的日照城市成長。'},
+  {y:1926,cat:'life',title:'入台北高等學校',loc:'台北',detail:'就讀臺灣總督府立台北高等學校，親身踏上嚮往的「南方」。殖民地城市台北的氣候、語言與多族裔景象，成為日後創作的感官底色。'},
+  {y:1930,cat:'life',title:'入東京帝國大學文學部',loc:'東京',detail:'入學試場上與津島修治（太宰治）初識。借住林芙美子宅附近，出入東京文藝圈，結交檀一雄等人。'},
+  {y:1930,cat:'rel', title:'與太宰治初識',loc:'東京帝大試場',detail:'入學考試現場的偶然相遇，開啟「北太宰、南地平」這對文學雙生的複雜關係。兩人同為井伏鱒二門下，氣質截然相反。'},
+  {y:1932,cat:'work',title:'〈熱帶柳的種子〉出道',loc:'東京',detail:'在《作品》誌發表，獲佐藤春夫賞識，正式踏入文壇。已確立「南方」作為地平文學核心意象。',works:['《作品》誌']},
+  {y:1932,cat:'rel', title:'師事井伏鱒二',loc:'東京',detail:'與太宰治、小山祐士並稱「井伏門下三羽烏」。師徒情誼延續至二戰從軍，乃至地平辭世後井伏撰文悼念。'},
+  {y:1934,cat:'life',title:'入都新聞社文化部',loc:'東京',detail:'擔任記者約兩年半，以記者視角磨練文字。都新聞社即今日《東京新聞》前身。'},
+  {y:1935,cat:'rel', title:'發表〈失踪〉，與太宰決裂',loc:'東京',detail:'以太宰治自殺未遂及失蹤事件為題材發表〈失踪〉，兩人關係決裂。翌年太宰以〈喝采〉回應，長達二十餘年交惡。',works:['〈失踪〉《行動》誌']},
+  {y:1937,cat:'award',title:'第一次芥川賞候補',loc:'東京',detail:'〈土龍どんもぽっくり〉獲提名，以「南方文學旗手」之姿引起文壇注目。',works:['〈土龍どんもぽっくり〉']},
+  {y:1938,cat:'award',title:'第二、三次芥川賞候補',loc:'東京',detail:'〈南方郵信〉與〈在離島〉連續兩度提名，同年出版首部短篇集《熱帯柳の種子》。',works:['〈南方郵信〉','〈在離島〉','《熱帯柳の種子》']},
+  {y:1939,cat:'work', title:'與真杉靜枝赴台取材',loc:'台灣各地',detail:'與戀人真杉靜枝同赴台灣，深入原住民部落山地取材。直接催生《蕃界之女》《霧之蕃社》《長耳國漂流記》三部核心作品。',works:['《蕃界之女》雛形','《霧之蕃社》雛形','《長耳國漂流記》雛形']},
+  {y:1940,cat:'award',title:'第四次芥川賞候補',loc:'東京',detail:'短篇集《蕃界の女》獲提名，以台灣原住民部落女性為主角，四度候補仍未獲獎。',works:['《蕃界の女》']},
+  {y:1941,cat:'work', title:'出版《台灣小說集》',loc:'東京',detail:'墨水書房出版，匯集所有台灣取材作品。後記名句：「對南方的鄉愁……是我一生永不改變的事」。',works:['《台灣小說集》','《長耳國漂流記》','《仕事机》']},
+  {y:1943,cat:'war',  title:'赴馬來半島從軍',loc:'馬來半島',detail:'受軍部徵用為陸軍報道班員，隨井伏鱒二等赴馬來半島約一年。南方憧憬在戰爭現實中徹底變質。',works:['《マライの人たち》']},
+  {y:1944,cat:'war',  title:'疏開返鄉宮崎',loc:'宮崎',detail:'戰局惡化，疏開返回故鄉。出版鄉土作品集《日向》。',works:['《日向》']},
+  {y:1947,cat:'life', title:'出任宮崎縣立圖書館館長',loc:'宮崎',detail:'擔任第23代館長，與詩人黑木清次共同創作全國罕見的「圖書館館歌」。'},
+  {y:1948,cat:'work', title:'發表〈孩子的形象〉',loc:'宮崎',detail:'以女兒危篤生還為素材，風格從浪漫主義轉向私小說，標誌文學生命的重大轉折。',works:['〈孩子的形象〉']},
+  {y:1950,cat:'award',title:'第五次芥川賞候補',loc:'宮崎',detail:'〈八年間〉獲提名。五度候補始終未獲獎，成為文學史上「永遠的候補」。',works:['〈八年間〉']},
+  {y:1957,cat:'life', title:'退任館長，轉任宮崎相互銀行',loc:'宮崎',detail:'退任圖書館長，轉任取締役；1961年接任父職出任第二代社長。文學家與銀行家的雙重身分折射戰後地方菁英型態。'},
+  {y:1962,cat:'rel',  title:'撰〈「喝采」前後〉，與太宰和解',loc:'宮崎',detail:'距兩人決裂近三十年，距太宰辭世已十四年，地平撰文完成遲來的和解，為「北太宰、南地平」寫下句點。',works:['〈「喝采」前後〉']},
+  {y:1963,cat:'life', title:'辭世，享年五十五歲',loc:'宮崎',detail:'1963年2月26日逝世。1971年皆美社刊行《中村地平全集》（全三卷）。'},
+];
+
+(function buildTimeline(){
+  const container=document.getElementById('tl-container');
+  const groups={};const order=[];
+  TL_DATA.forEach(d=>{if(!groups[d.y]){groups[d.y]=[];order.push(d.y);}groups[d.y].push(d);});
+  let filter='all';
+
+  function render(f){
+    filter=f;container.innerHTML='';
+    order.forEach(y=>{
+      const evs=groups[y];
+      const vis=f==='all'?evs:evs.filter(e=>e.cat===f);
+      if(vis.length===0)return;
+      const yrStamp=document.createElement('div');
+      yrStamp.className='yr-stamp';
+      yrStamp.innerHTML=`<div class="yr-ad">${y}</div><div class="yr-jp">${jpEra(y)}</div>`;
+      const axCell=document.createElement('div');
+      axCell.className='axis-cell';
+      axCell.innerHTML='<div class="axis-cell-line"></div>';
+      const dotColor=vis.length?CAT[vis[0].cat].dot:'#B4B2A9';
+      const dot=document.createElement('div');
+      dot.className='axis-dot';dot.style.background=dotColor;
+      axCell.appendChild(dot);
+      const evCol=document.createElement('div');evCol.className='ev-col';
+      evs.forEach(ev=>{
+        const card=document.createElement('div');
+        card.className='ev-card'+(f!=='all'&&ev.cat!==f?' hidden':'');
+        const c=CAT[ev.cat];
+        card.innerHTML=`<div class="ev-top"><span class="ev-tag" style="background:${c.bg};color:${c.fg}">${c.label}</span><span class="ev-title">${ev.title}</span></div><div class="ev-loc">📍 ${ev.loc}</div><div class="ev-detail">${ev.detail}${ev.works?'<div class="ev-works">'+ev.works.map(w=>`<span class="ev-chip">${w}</span>`).join('')+'</div>':''}</div>`;
+        card.addEventListener('click',()=>card.classList.toggle('open'));
+        evCol.appendChild(card);
+      });
+      container.appendChild(yrStamp);
+      container.appendChild(axCell);
+      container.appendChild(evCol);
+    });
+  }
+  render('all');
+  document.querySelectorAll('.tl-ftab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.tl-ftab').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');render(btn.dataset.f);
+    });
+  });
+})();
+
+/* ===== MAP TIMELINE ===== */
+(function buildMapTL(){
+  const items=[
+    {y:'1908–1925',dot:'#7F77DD',place:'宮崎・幼年期',desc:'生於宮崎市。中學時讀佐藤春夫臺灣小說，對「南方」產生強烈憧憬。',tags:[{t:'成長背景',bg:'#EEEDFE',fg:'#3C3489'}]},
+    {y:'1926–1930',dot:'#1D9E75',place:'台北・高校時代',desc:'就讀台北高校，親身踏上南方。殖民地城市成為創作感官底色。',tags:[{t:'南方初體驗',bg:'#E1F5EE',fg:'#0F6E56'}]},
+    {y:'1930–1939',dot:'#378ADD',place:'東京・文壇出道',desc:'入東京帝大，師事井伏鱒二。1932年以〈熱帶柳的種子〉出道，三度芥川賞候補。',tags:[{t:'創作盛期',bg:'#E6F1FB',fg:'#185FA5'},{t:'芥川賞候補',bg:'#FAEEDA',fg:'#633806'}]},
+    {y:'1939',dot:'#D85A30',place:'台灣各地・取材',desc:'與真杉靜枝深入原住民部落取材，孕育《蕃界之女》《霧之蕃社》《長耳國漂流記》。',tags:[{t:'代表作誕生',bg:'#FAECE7',fg:'#993C1D'}]},
+    {y:'1943–44',dot:'#BA7517',place:'馬來半島・戰時',desc:'陸軍報道班員，隨井伏鱒二赴馬來半島。留下《マライの人たち》，南方憧憬變質。',tags:[{t:'戰時紀行',bg:'#FAEEDA',fg:'#633806'}]},
+    {y:'1944–1963',dot:'#7F77DD',place:'宮崎・歸鄉晚年',desc:'疏開返鄉，任圖書館館長，後轉任銀行社長。1963年辭世，享年五十五歲。',tags:[{t:'歸鄉轉型',bg:'#EEEDFE',fg:'#3C3489'}]},
+  ];
+  const tl=document.getElementById('map-timeline');
+  items.forEach((item,i)=>{
+    const el=document.createElement('div');el.className='map-tl-item';
+    el.innerHTML=`<div class="map-tl-left"><div class="map-line-t"></div><div class="map-dot" style="background:${item.dot}"></div><div class="map-line-b"></div></div><div class="map-yr">${item.y}</div><div class="map-card"><div class="map-place">${item.place}</div><div class="map-desc">${item.desc}</div><div class="map-tags">${item.tags.map(t=>`<span class="map-tag" style="background:${t.bg};color:${t.fg}">${t.t}</span>`).join('')}</div></div>`;
+    el.addEventListener('click',()=>{document.querySelectorAll('.map-tl-item').forEach(x=>x.classList.remove('active'));el.classList.toggle('active');});
+    tl.appendChild(el);
+  });
+})();
+
+/* ===== NETWORK ===== */
+const NG={
+  core:   {c:'#854F0B',l:'#FAEEDA',label:'核心'},
+  teacher:{c:'#534AB7',l:'#EEEDFE',label:'師承'},
+  tpe:    {c:'#1D9E75',l:'#E1F5EE',label:'台北高校'},
+  peer:   {c:'#185FA5',l:'#E6F1FB',label:'東京文壇'},
+  taiwan: {c:'#D85A30',l:'#FAECE7',label:'臺灣／南方'},
+  war:    {c:'#993C1D',l:'#FAECE7',label:'戰時'},
+  local:  {c:'#7a4a0a',l:'#FAEEDA',label:'宮崎地方'},
+  gap:    {c:'#888780',l:'#F1EFE8',label:'空白對照'},
+};
+const NN=[
+  {id:'chihe',label:'中村地平',g:'core',r:30,x:350,y:250,role:'小說家（1908–1963）',rel:'南方文學旗手，五度芥川賞候補。「北太宰、南地平」的文學座標核心。'},
+  {id:'ibu',  label:'井伏鱒二',g:'teacher',r:22,x:200,y:110,role:'小說家（1898–1993）',rel:'地平文學恩師，「三羽烏」師父。戰時同赴馬來，地平逝後撰悼念文。'},
+  {id:'sato', label:'佐藤春夫',g:'teacher',r:20,x:90, y:200,role:'詩人、小說家（1892–1964）',rel:'文學啟蒙遠源。其臺灣小說點燃地平南方憧憬，並賞識出道作。'},
+  {id:'tpe',  label:'台北高校',g:'tpe',r:24,x:190,y:360,role:'臺灣總督府立台北高等學校',rel:'地平1926–1930年求學地。文藝部、美術部、《翔風》與《足跡》的制度場域，是南方憧憬轉化為創作實踐之處。'},
+  {id:'asik', label:'《足跡》',g:'tpe',r:18,x:100,y:420,role:'同人誌，1927年創刊，共三期',rel:'由地平、濱田隼雄、鹽月赳、今澤正雄、蔭山泰敏、土方正巳等同人發起。中村高校文學活動的火種。'},
+  {id:'syofu',label:'《翔風》',g:'tpe',r:16,x:195,y:450,role:'台北高校學友會刊物',rel:'《足跡》終刊後的重要發表平台，連接日本學生、臺籍學生、教師與校園文藝制度。'},
+  {id:'hama', label:'濱田隼雄',g:'tpe',r:16,x:75, y:320,role:'小說家，《足跡》同人',rel:'地平台北高校的核心同輩，同在《足跡》起步，後來都書寫臺灣，可與《南方移民村》對讀。'},
+  {id:'shade',label:'蔭山泰敏',g:'tpe',r:14,x:105,y:490,role:'筆名大場泰，文藝部・美術部',rel:'以「大場泰」在《足跡》發表，讓同人誌不只是文學圈，也是文字、封面、插畫交會的文化場。'},
+  {id:'shio', label:'鹽月赳',  g:'tpe',r:14,x:280,y:450,role:'《足跡》同人，鹽月桃甫之子',rel:'透過父親鹽月桃甫連接台北高校美術教育脈絡。'},
+  {id:'imaz', label:'今澤正雄',g:'tpe',r:13,x:310,y:490,role:'筆名網野正雄，《足跡》同人',rel:'在《足跡》目次以「網野正雄」出現。後續應補其科別與作品，避免讓邊緣人物再次消失。'},
+  {id:'hiji', label:'土方正巳',g:'tpe',r:13,x:155,y:500,role:'《足跡》同人，詩與散文詩',rel:'《足跡》同人，詩作出現於目次中。'},
+  {id:'siotp',label:'鹽月桃甫',g:'tpe',r:16,x:55, y:440,role:'畫家，台北高校圖畫教師',rel:'《足跡》封面由其繪製，地平部分書籍亦與其封面設計相關。把「南方」從主題推進到視覺形式。'},
+  {id:'kano', label:'鹿野忠雄',g:'tpe',r:14,x:375,y:430,role:'博物學、登山、民族學研究者',rel:'與地平在台北高校時間重疊。可作「山地知識」平行對照：地平文學化觀看山地，鹿野以調查採集進入山地。'},
+  {id:'haya2',label:'林原耕三',g:'tpe',r:13,x:400,y:475,role:'台北高校教師，文藝部師長',rel:'校園文藝制度的師長節點。'},
+  {id:'sugi', label:'杉山產七',g:'tpe',r:12,x:445,y:430,role:'台北高校德語教師',rel:'宮崎縣立圖書館資料提及中村在校受其等文學指導。'},
+  {id:'dazai',label:'太宰治',  g:'peer',r:21,x:490,y:130,role:'小說家（1909–1948）',rel:'東大試場初識，同為井伏門下。〈失踪〉與〈喝采〉交互針鋒，長期交惡，1962年和解。「北太宰、南地平」。'},
+  {id:'koyam',label:'小山祐士',g:'peer',r:15,x:580,y:185,role:'劇作家、小說家',rel:'同為井伏門下三羽烏之一。'},
+  {id:'hay3', label:'林芙美子',g:'peer',r:15,x:115,y:140,role:'小說家（1903–1951）',rel:'地平入東大後借住其宅附近，出入林宅文藝圈，是重要的生活與交友空間。'},
+  {id:'dan',  label:'檀一雄',  g:'peer',r:14,x:505,y:195,role:'小說家（1912–1976）',rel:'東大時期結交，阿佐谷文人圈一員，留有相關記述。'},
+  {id:'masug',label:'真杉靜枝',g:'taiwan',r:22,x:520,y:285,role:'小說家（1900–1955）',rel:'地平戀人，幼年起成長於臺灣。1939年同赴臺灣取材，直接催生台灣系列作品。不是附屬角色，而是另一種殖民地臺灣書寫者。'},
+  {id:'tw',   label:'臺灣取材',g:'taiwan',r:17,x:605,y:340,role:'1939年田野取材',rel:'深入原住民部落山地，孕育《蕃界之女》《霧之蕃社》《長耳國漂流記》。'},
+  {id:'musya',label:'武者小路',g:'taiwan',r:13,x:610,y:220,role:'小說家（1885–1976）',rel:'真杉靜枝前情人，其人道主義立場是理解真杉—地平關係的外圍脈絡。'},
+  {id:'hodo', label:'陸軍報道班',g:'war',r:19,x:600,y:415,role:'戰時文化動員機制',rel:'地平1943年受徵用為報道班員赴馬來半島，南方憧憬在戰爭現實中變質。'},
+  {id:'oda',  label:'小田嶽夫',g:'war',r:14,x:660,y:360,role:'小說家（1898–1992）',rel:'同赴馬來半島，留有對地平性格與南方感性的回憶。'},
+  {id:'kita', label:'北町一郎',g:'war',r:13,x:665,y:445,role:'小說家',rel:'同被徵召赴馬來半島的報道班文官同仁。'},
+  {id:'lib',  label:'宮崎圖書館',g:'local',r:16,x:200,y:160,role:'戰後文化機構',rel:'地平戰後擔任第23代館長，與詩人黑木清次共同創作圖書館館歌。'},
+  {id:'kuro', label:'黑木清次',g:'local',r:13,x:125,y:205,role:'詩人',rel:'與地平共同創作宮崎縣立圖書館館歌。'},
+  {id:'bank', label:'宮崎相互銀行',g:'local',r:15,x:255,y:175,role:'金融機構',rel:'地平晚年轉任取締役，1961年接任父職出任第二代社長。文學生命的現實收束。'},
+  {id:'ryu',  label:'龍瑛宗',  g:'gap',r:14,x:505,y:470,role:'臺灣本島籍作家',rel:'目前無明確直接往來記載。空白本身是問題：地平的取材是否繞過都市殖民地知識分子？'},
+  {id:'nishi',label:'西川滿',  g:'gap',r:14,x:585,y:490,role:'在臺日人文壇節點',rel:'地平在東京，與西川的在臺日人文壇圈屬平行關係。兩者同書寫臺灣卻站在不同制度位置。'},
+];
+const NE=[
+  {a:'chihe',b:'ibu',  s:true},{a:'chihe',b:'sato', s:false},{a:'chihe',b:'tpe', s:true},
+  {a:'chihe',b:'dazai',s:true},{a:'chihe',b:'masug',s:true},{a:'chihe',b:'hodo',s:true},
+  {a:'chihe',b:'lib',  s:false},{a:'chihe',b:'bank', s:false},{a:'chihe',b:'ryu', s:false},
+  {a:'chihe',b:'nishi',s:false},{a:'chihe',b:'hay3', s:false},{a:'chihe',b:'koyam',s:false},
+  {a:'chihe',b:'dan',  s:false},{a:'ibu',  b:'dazai',s:false},{a:'ibu',  b:'koyam',s:false},
+  {a:'ibu',  b:'hodo', s:false},{a:'tpe',  b:'asik', s:true},{a:'tpe',  b:'syofu',s:true},
+  {a:'tpe',  b:'hama', s:true},{a:'tpe',  b:'shade',s:false},{a:'tpe',  b:'shio', s:false},
+  {a:'tpe',  b:'imaz', s:false},{a:'tpe',  b:'hiji', s:false},{a:'tpe',  b:'siotp',s:false},
+  {a:'tpe',  b:'kano', s:false},{a:'tpe',  b:'haya2',s:false},{a:'tpe',  b:'sugi', s:false},
+  {a:'asik', b:'hama', s:true},{a:'asik', b:'shade',s:false},{a:'asik', b:'shio', s:false},
+  {a:'asik', b:'imaz', s:false},{a:'asik', b:'hiji', s:false},{a:'shio', b:'siotp',s:true},
+  {a:'masug',b:'tw',   s:true},{a:'masug',b:'musya',s:false},{a:'sato', b:'masug',s:false},
+  {a:'hodo', b:'oda',  s:false},{a:'hodo', b:'kita', s:false},{a:'ryu',  b:'nishi',s:false},
+  {a:'lib',  b:'kuro', s:true},{a:'dazai',b:'dan',  s:false},
+];
+
+let netFilter='all',netHover=null,netSel=null,netDrag=false,netDragNode=null,netLX=0,netLY=0;
+const netCanvas=document.getElementById('net-canvas');
+const nctx=netCanvas.getContext('2d');
+const NW=netCanvas.width,NH=netCanvas.height;
+
+function nByID(id){return NN.find(n=>n.id===id);}
+function nVis(n){return netFilter==='all'||n.g===netFilter||n.id==='chihe';}
+function eVis(e){return nVis(nByID(e.a))&&nVis(nByID(e.b));}
+
+function drawNet(){
+  nctx.clearRect(0,0,NW,NH);
+  if(netFilter==='all'||netFilter==='tpe'){
+    nctx.beginPath();nctx.ellipse(240,440,210,115,0,0,Math.PI*2);
+    nctx.fillStyle='rgba(29,158,117,0.06)';nctx.fill();
+    nctx.strokeStyle='rgba(29,158,117,0.2)';nctx.lineWidth=1;
+    nctx.setLineDash([5,4]);nctx.stroke();nctx.setLineDash([]);
+    nctx.font='11px serif';nctx.fillStyle='rgba(29,158,117,0.6)';
+    nctx.textAlign='left';nctx.fillText('台北高校制度場域',42,335);
+  }
+  NE.forEach(e=>{
+    if(!eVis(e))return;
+    const a=nByID(e.a),b=nByID(e.b);
+    const hi=(netHover&&(netHover.id===a.id||netHover.id===b.id))||(netSel&&(netSel.id===a.id||netSel.id===b.id));
+    nctx.beginPath();nctx.moveTo(a.x,a.y);nctx.lineTo(b.x,b.y);
+    nctx.strokeStyle=hi?'rgba(139,105,20,.75)':'rgba(139,105,20,.16)';
+    nctx.lineWidth=hi?(e.s?2.5:1.5):(e.s?1.4:0.7);
+    nctx.setLineDash((!e.s&&!hi)?[4,3]:[]);nctx.stroke();nctx.setLineDash([]);
+  });
+  NN.forEach(n=>{
+    if(!nVis(n))return;
+    const g=NG[n.g]||NG.core;
+    const hi=netHover&&netHover.id===n.id;
+    const sel=netSel&&netSel.id===n.id;
+    if(hi||sel){nctx.beginPath();nctx.arc(n.x,n.y,n.r+7,0,Math.PI*2);nctx.fillStyle=g.c+'20';nctx.fill();}
+    nctx.beginPath();nctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+    nctx.fillStyle=(hi||sel)?g.c:g.l;nctx.fill();
+    nctx.strokeStyle=g.c;nctx.lineWidth=sel?2:0.8;nctx.stroke();
+    nctx.fillStyle=(hi||sel)?'#fff':g.c;nctx.textAlign='center';nctx.textBaseline='middle';
+    const lbl=n.label;const fs=n.id==='chihe'?13:Math.min(11,n.r*0.48);
+    nctx.font=`500 ${fs}px serif`;
+    if(lbl.length>4&&n.r>=16){const m=Math.ceil(lbl.length/2);nctx.fillText(lbl.slice(0,m),n.x,n.y-fs*0.6);nctx.fillText(lbl.slice(m),n.x,n.y+fs*0.6);}
+    else nctx.fillText(lbl,n.x,n.y);
+  });
+}
+
+function nHit(x,y){for(let i=NN.length-1;i>=0;i--){const n=NN[i];if(!nVis(n))continue;const dx=x-n.x,dy=y-n.y;if(dx*dx+dy*dy<=(n.r+5)*(n.r+5))return n;}return null;}
+
+function nShowInfo(n){
+  const el=document.getElementById('net-info');
+  if(!n){el.innerHTML='<p class="net-empty">點擊節點查看說明；拖曳節點調整位置；滑鼠懸停高亮連線</p>';return;}
+  const g=NG[n.g]||NG.core;
+  el.innerHTML=`<span class="net-info-tag" style="background:${g.l};color:${g.c}">${g.label}</span><div class="net-info-name">${n.label}</div><div class="net-info-role">${n.role}</div><div class="net-info-rel">${n.rel}</div>`;
+}
+
+function nXY(e){const r=netCanvas.getBoundingClientRect();return e.touches?{x:e.touches[0].clientX-r.left,y:e.touches[0].clientY-r.top}:{x:e.clientX-r.left,y:e.clientY-r.top};}
+
+netCanvas.addEventListener('mousemove',e=>{
+  const {x,y}=nXY(e);
+  if(netDrag&&netDragNode){netDragNode.x=Math.max(netDragNode.r,Math.min(NW-netDragNode.r,x));netDragNode.y=Math.max(netDragNode.r,Math.min(NH-netDragNode.r,y));drawNet();return;}
+  const n=nHit(x,y);if(n!==netHover){netHover=n;netCanvas.style.cursor=n?'pointer':'grab';drawNet();}
+});
+netCanvas.addEventListener('mousedown',e=>{const{x,y}=nXY(e);netLX=x;netLY=y;const n=nHit(x,y);if(n){netDrag=true;netDragNode=n;}});
+netCanvas.addEventListener('mouseup',e=>{
+  const{x,y}=nXY(e);const moved=Math.abs(x-netLX)>4||Math.abs(y-netLY)>4;
+  if(!moved){const n=nHit(x,y);netSel=(n===netSel)?null:n;nShowInfo(netSel);}
+  netDrag=false;netDragNode=null;drawNet();
+});
+netCanvas.addEventListener('mouseleave',()=>{netHover=null;netDrag=false;netDragNode=null;drawNet();});
+netCanvas.addEventListener('touchstart',e=>{e.preventDefault();const{x,y}=nXY(e);const n=nHit(x,y);if(n){netDrag=true;netDragNode=n;netLX=x;netLY=y;}},{passive:false});
+netCanvas.addEventListener('touchmove',e=>{e.preventDefault();const{x,y}=nXY(e);if(netDrag&&netDragNode){netDragNode.x=Math.max(netDragNode.r,Math.min(NW-netDragNode.r,x));netDragNode.y=Math.max(netDragNode.r,Math.min(NH-netDragNode.r,y));drawNet();}},{passive:false});
+netCanvas.addEventListener('touchend',()=>{netDrag=false;netDragNode=null;drawNet();});
+
+document.querySelectorAll('.net-ftab').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.net-ftab').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');netFilter=b.dataset.g;netSel=null;nShowInfo(null);drawNet();
+  });
+});
+drawNet();
+</script>
+</body></html>
